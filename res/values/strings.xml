@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CIT Apprenticeship App</string>
+    <string name="beginning_your_apprenticeship">Beginning your Apprenticeship</string>
+    <string name="back">Back</string>
+    <string name="home">Home</string>
+    <string name="next">Next</string>
+</resources>
