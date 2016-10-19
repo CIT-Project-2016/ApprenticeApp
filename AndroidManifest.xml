@@ -21,8 +21,8 @@
         <activity android:name=".EnrolmentUSI" />
         <activity android:name=".EnrolmentTrainingPlan" />
         <activity android:name=".EnrolmentComplete" />
-        <activity android:name=".ContractSignContract" />
-        <activity android:name=".ContractApproval"></activity>
+        <activity android:name=".EditInformation" />
+        <activity android:name=".ViewInformation"></activity>
     </application>
 
 </manifest>
