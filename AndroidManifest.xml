@@ -18,6 +18,8 @@
         <activity android:name=".TimelineMain" />
         <activity android:name=".ApprenticeshipBegin" />
         <activity android:name=".ApprenticeshipEmployment" />
+        <activity android:name=".ContractSignContract" />
+        <activity android:name=".ContractApproval" />
         <activity android:name=".EnrolmentUSI" />
         <activity android:name=".EnrolmentTrainingPlan" />
         <activity android:name=".EnrolmentComplete" />
