@@ -25,21 +25,21 @@ public class ViewInformation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_information);
 
-        EditText usiTxt = (EditText) findViewById(R.id.txtUsiNumber);
+        EditText txtUsi = (EditText) findViewById(R.id.txtUsiNumber);
 
-        EditText citTxt = (EditText) findViewById(R.id.txtCitNumber);
+        EditText txtCitNum = (EditText) findViewById(R.id.txtCitNumber);
 
-        EditText anpNameTxt = (EditText) findViewById(R.id.txtAnpName);
+        EditText txtAnpName = (EditText) findViewById(R.id.txtAnpName);
 
-        EditText anpPhoneTxt = (EditText) findViewById(R.id.txtAnpPhone);
+        EditText txtAnpPhone = (EditText) findViewById(R.id.txtAnpPhone);
 
-        EditText anpEmailTxt = (EditText) findViewById(R.id.txtAnpEmail);
+        EditText txtAnpEmail = (EditText) findViewById(R.id.txtAnpEmail);
 
-        EditText deptNameTxt = (EditText) findViewById(R.id.txtDeptName);
+        EditText txtDeptName = (EditText) findViewById(R.id.txtDeptName);
 
-        EditText deptPhoneTxt = (EditText) findViewById(R.id.txtDeptPhone);
+        EditText txtDeptPhone = (EditText) findViewById(R.id.txtDeptPhone);
 
-        EditText deptEmailTxt = (EditText) findViewById(R.id.txtDeptEmail);
+        EditText txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
 
         EditText LLNTxt = (EditText) findViewById(R.id.txtLLN);
 
@@ -52,7 +52,7 @@ public class ViewInformation extends AppCompatActivity {
 
         //String filename = "informationFile";
 
-        FileInputStream inputStream;
+        //FileInputStream inputStream;
 
         preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
         preferenceEditor = preferenceSettings.edit();
@@ -76,38 +76,35 @@ public class ViewInformation extends AppCompatActivity {
             if(inputStream !=null){
                 InputStreamReader info = new InputStreamReader(inputStream);
                 BufferedReader reader = new BufferedReader(info);
-
                 String str = "";
-
                 StringBuilder buf=new StringBuilder();
                 while ((str = reader.readLine()) != null) {
-
                     buf.append(str);
-
-                }
-
-                inputStream.close();*/
-
-                usiTxt.setText(preferenceSettings.getString("USI", "Not Found"));
-                citTxt.setText(preferenceSettings.getString("CIT Number", "Not Found"));
-
-                anpNameTxt.setText(preferenceSettings.getString("ANP Name", "Not Found"));
-                anpPhoneTxt.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
-                anpEmailTxt.setText(preferenceSettings.getString("ANP Email", "Not Found"));
-
-                deptNameTxt.setText(preferenceSettings.getString("Department Name", "Not Found"));
-                deptPhoneTxt.setText(preferenceSettings.getString("Department Phone", "Not Found"));
-                deptEmailTxt.setText(preferenceSettings.getString("Department Email", "Not Found"));
-
-                LLNTxt.setText(preferenceSettings.getString("LLN Completion", "Not done"));
-
-                RPLlbl.setText(preferenceSettings.getString("RPL", "Not done"));
-                TPClbl.setText(preferenceSettings.getString("Training Plan", "Not Found"));
-                ClassStartTxt.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
+            }
+            inputStream.close();*/
 
 
+            txtUsi.setText(preferenceSettings.getString("USI", "Not Found"));
+            txtCitNum.setText(preferenceSettings.getString("CIT Number", "Not Found"));
 
-               // usiTxt.setText(buf.toString(), TextView.BufferType.EDITABLE);
+            txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
+            txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
+            txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
+
+            txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
+            txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
+            txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
+
+
+            //these ones aren't done yet
+           /* LLNTxt.setText(preferenceSettings.getString("LLN Completion", "Not Found"));
+            RPLlbl.setText(preferenceSettings.getString("RPL", "Not Found"));
+            TPClbl.setText(preferenceSettings.getString("Training Plan", "Not Found"));
+            ClassStartTxt.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
+            */
+
+
+            // txtUsi.setText(buf.toString(), TextView.BufferType.EDITABLE);
 
 
         } catch (Exception e)
