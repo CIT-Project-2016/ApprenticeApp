@@ -74,8 +74,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:enabled="false"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:enabled="false" />
 
             </LinearLayout>
 
@@ -325,7 +325,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:id="@+id/txtLLN"
+                android:id="@+id/txtLlnDate"
                 android:textSize="15sp"
                 android:layout_marginTop="10dp"
                 android:enabled="false"

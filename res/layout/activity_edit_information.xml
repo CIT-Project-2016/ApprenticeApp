@@ -72,7 +72,7 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:maxLines="1"  />
 
             </LinearLayout>
 
@@ -104,7 +104,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    android:maxLines="1" />
 
             </LinearLayout>
             <TextView
@@ -142,7 +143,7 @@
                     android:id="@+id/txtAnpName"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:maxLines="1"  />
             </LinearLayout>
 
             <LinearLayout
@@ -168,7 +169,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:inputType="phone"
+                    android:maxLines="1"  />
 
             </LinearLayout>
 
@@ -195,7 +197,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"  />
 
             </LinearLayout>
 
@@ -217,7 +220,6 @@
                 android:weightSum="1">
 
                 <TextView
-
                     android:text="Name:"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
@@ -234,7 +236,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:inputType="text"
+                    android:maxLines="1"  />
             </LinearLayout>
 
             <LinearLayout
@@ -260,7 +263,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:inputType="phone"
+                    android:maxLines="1"  />
 
             </LinearLayout>
 
@@ -285,7 +289,8 @@
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    />
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"  />
 
             </LinearLayout>
 
@@ -302,11 +307,15 @@
                 android:layout_marginTop="20dp" />
 
             <!--datepicker-->
-            <Button
-                android:text="Pick Date"
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnLLNDate" />
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/txtLlnDate"
+                android:focusableInTouchMode="false"
+                android:maxLines="1"  /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
+
 
             <LinearLayout
                 android:layout_width="match_parent"

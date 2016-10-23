@@ -8,13 +8,14 @@ import android.widget.Button;
 
 public class ContractApproval extends AppCompatActivity {
 
+    Button btnBack, btnHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contract_approval);
 
         //Back Button
-        Button btnBack = (Button) findViewById(R.id.btnBack);
+        btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,13 +25,12 @@ public class ContractApproval extends AppCompatActivity {
         });
 
         //Home Button
-        Button btnHome = (Button) findViewById(R.id.btnHome);
+        btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ContractApproval.this, MainActivity.class));
             }
         });
-
     }
 }
