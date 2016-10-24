@@ -14,14 +14,9 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="citaapp.citapprenticeshipapp.EditInformation">
-        <Button
-            android:text="Save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSave"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentTop="true" />
+
+
+
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -31,21 +26,47 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-
-            <TextView
-                android:text="Edit Information"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:fontFamily="sans-serif"
-                android:textSize="24sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textAlignment="center" />
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <TextView
+                    android:text="Edit Information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:fontFamily="sans-serif"
+                    android:textSize="22sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="center" />
 
+                <Button
+                    android:text="Cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/btnCancel"
+                    android:layout_marginLeft="15dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/btnSave"
+                    android:layout_toStartOf="@+id/btnSave" />
+
+                <Button
+                    android:text="Save"
+                    android:layout_width="71dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnSave"
+                    android:gravity="center"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="0.33" />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -315,7 +336,7 @@
                 android:id="@+id/txtLlnDate"
                 android:focusableInTouchMode="false"
                 android:maxLines="1"
-                 /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
+                /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
 
 
             <LinearLayout
@@ -427,17 +448,8 @@
                 android:ems="10"
                 android:focusableInTouchMode="false"
                 android:maxLines="1"
-                 /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
+                /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
 
         </LinearLayout>
-
-        <Button
-            android:text="Cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnCancel"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/btnSave"
-            android:layout_toStartOf="@+id/btnSave" />
     </RelativeLayout>
 </ScrollView>

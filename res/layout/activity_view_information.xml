@@ -15,14 +15,51 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="citaapp.citapprenticeshipapp.ViewInformation">
 
-        <Button
-            android:text="Edit"
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        <TextView
+            android:text="Information"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:fontFamily="sans-serif"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center" />
+
+
+        <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBack"
+            android:layout_marginLeft="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/btnEdit"
+            android:layout_toStartOf="@+id/btnEdit" />
+
+        <Button
+            android:text="Edit"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
             android:id="@+id/btnEdit"
+            android:gravity="center"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="false"
             android:layout_alignParentTop="true" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -34,25 +71,13 @@
             android:layout_alignParentStart="true">
 
 
-            <TextView
-                android:text="Information"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                android:fontFamily="sans-serif"
-                android:textSize="24sp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textAlignment="center" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="15sp"
+                android:paddingTop="62sp"
                 android:weightSum="1">
 
                 <TextView
@@ -408,13 +433,6 @@
                 android:focusable="false" />
         </LinearLayout>
 
-        <Button
-            android:text="Back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnBack"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/btnEdit"
-            android:layout_toStartOf="@+id/btnEdit" />
+
     </RelativeLayout>
 </ScrollView>
