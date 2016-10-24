@@ -8,6 +8,8 @@ import android.widget.Button;
 
 public class ApprenticeshipBegin extends AppCompatActivity {
 
+    Button btnNext, btnBack, btnHome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,7 +17,7 @@ public class ApprenticeshipBegin extends AppCompatActivity {
 
 
         //Next Button
-        Button btnNext = (Button) findViewById(R.id.btnNext);
+        btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,7 +26,7 @@ public class ApprenticeshipBegin extends AppCompatActivity {
         });
 
         //Back Button
-        Button btnBack = (Button) findViewById(R.id.btnBack);
+        btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,15 +36,12 @@ public class ApprenticeshipBegin extends AppCompatActivity {
         });
 
         //Home Button
-        Button btnHome = (Button) findViewById(R.id.btnHome);
+        btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ApprenticeshipBegin.this, MainActivity.class));
             }
         });
-
-
-
     }
 }

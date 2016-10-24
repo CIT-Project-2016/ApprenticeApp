@@ -8,13 +8,15 @@ import android.widget.Button;
 
 public class ContractSignContract extends AppCompatActivity {
 
+    Button btnNext, btnBack, btnHome;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contract_sign_contract);
 
         //Next Button
-        Button btnNext = (Button) findViewById(R.id.btnNext);
+        btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,7 +25,7 @@ public class ContractSignContract extends AppCompatActivity {
         });
 
         //Back Button
-        Button btnBack = (Button) findViewById(R.id.btnBack);
+        btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +35,7 @@ public class ContractSignContract extends AppCompatActivity {
         });
 
         //Home Button
-        Button btnHome = (Button) findViewById(R.id.btnHome);
+        btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
