@@ -28,8 +28,8 @@ public class ApprenticeshipBegin extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ApprenticeshipBegin.this, TimelineMain.class));
-                //finish();
+                //startActivity(new Intent(ApprenticeshipBegin.this, TimelineMain.class));
+                finish();
             }
         });
 

@@ -24,6 +24,14 @@ public class TimelineMain extends AppCompatActivity {
         });
 
 
+        //Contract Button
+        Button btnContract = (Button) findViewById(R.id.btnContract);
+        btnContract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TimelineMain.this, ContractSignContract.class));
+            }
+        });
 
 
         //Enrolment Button
