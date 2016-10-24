@@ -6,33 +6,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class EnrolmentTrainingPlan extends AppCompatActivity
-{
+public class EnrolmentTrainingPlan extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enrolment_training_plan);
 
         //Next Button
         Button btnNext = (Button) findViewById(R.id.btnNext);
-        btnNext.setOnClickListener(new View.OnClickListener()
-        {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(EnrolmentTrainingPlan.this, EnrolmentComplete.class));
             }
         });
 
         //Back Button
         Button btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener()
-        {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 //startActivity(new Intent(ApprenticeshipBegin.this, TimelineMain.class));
                 finish();
             }
@@ -40,11 +34,9 @@ public class EnrolmentTrainingPlan extends AppCompatActivity
 
         //Home Button
         Button btnHome = (Button) findViewById(R.id.btnHome);
-        btnHome.setOnClickListener(new View.OnClickListener()
-        {
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 startActivity(new Intent(EnrolmentTrainingPlan.this, MainActivity.class));
             }
         });
