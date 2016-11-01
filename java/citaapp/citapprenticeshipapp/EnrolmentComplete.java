@@ -25,14 +25,6 @@ public class EnrolmentComplete extends AppCompatActivity {
             }
         });
 
-        //here is another comment by Donald
-
-        //this is a new comment hello hello
-
-
-        //Here is another comment for the sake of it
-        //By Venus
-
         //Home Button
         btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
