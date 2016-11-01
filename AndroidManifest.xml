@@ -24,7 +24,12 @@
         <activity android:name=".EnrolmentTrainingPlan" />
         <activity android:name=".EnrolmentComplete" />
         <activity android:name=".EditInformation" />
-        <activity android:name=".ViewInformation"></activity>
+        <activity android:name=".ViewInformation" />
+
+        <!-- Internet Permissions -->
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <activity android:name=".TestDatabaseConnection"></activity>
     </application>
 
 </manifest>
