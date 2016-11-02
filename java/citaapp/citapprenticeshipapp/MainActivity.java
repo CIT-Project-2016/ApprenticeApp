@@ -8,14 +8,13 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnTimeline, btnInfo;
-
     @Override
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnTimeline = (Button) findViewById(R.id.btnTimeline);
+
+        Button btnTimeline = (Button) findViewById(R.id.btnTimeline);
         btnTimeline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnInfo = (Button) findViewById(R.id.btnInfo);
+        Button btnInfo = (Button) findViewById(R.id.btnInfo);
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ViewInformation.class));
+
             }
         });
     }

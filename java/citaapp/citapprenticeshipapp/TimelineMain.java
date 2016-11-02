@@ -8,8 +8,6 @@ import android.widget.Button;
 
 public class TimelineMain extends AppCompatActivity {
 
-    Button btnApprenticeship, btnContract, btnEnrolment, btnHome;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +15,7 @@ public class TimelineMain extends AppCompatActivity {
 
 
         //Apprenticeship Button
-        btnApprenticeship = (Button) findViewById(R.id.btnApprenticeship);
+        Button btnApprenticeship = (Button) findViewById(R.id.btnApprenticeship);
         btnApprenticeship.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,8 +23,9 @@ public class TimelineMain extends AppCompatActivity {
             }
         });
 
+
         //Contract Button
-        btnContract = (Button) findViewById(R.id.btnContract);
+        Button btnContract = (Button) findViewById(R.id.btnContract);
         btnContract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +35,7 @@ public class TimelineMain extends AppCompatActivity {
 
 
         //Enrolment Button
-        btnEnrolment = (Button) findViewById(R.id.btnEnrolment);
+        Button btnEnrolment = (Button) findViewById(R.id.btnEnrolment);
         btnEnrolment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +44,7 @@ public class TimelineMain extends AppCompatActivity {
         });
 
         //Home Button
-        btnHome = (Button) findViewById(R.id.btnHome);
+        Button btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
