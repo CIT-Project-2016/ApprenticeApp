@@ -19,10 +19,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtOutput"
         android:layout_below="@+id/btnViewDepartments"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="145dp" />
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
