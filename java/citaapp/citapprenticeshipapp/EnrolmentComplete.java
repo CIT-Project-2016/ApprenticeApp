@@ -8,15 +8,13 @@ import android.widget.Button;
 
 public class EnrolmentComplete extends AppCompatActivity {
 
-    Button btnBack, btnHome;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enrolment_complete);
 
         //Back Button
-        btnBack = (Button) findViewById(R.id.btnBack);
+        Button btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,12 +24,14 @@ public class EnrolmentComplete extends AppCompatActivity {
         });
 
         //Home Button
-        btnHome = (Button) findViewById(R.id.btnHome);
+        Button btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(EnrolmentComplete.this, MainActivity.class));
             }
         });
+
+
     }
 }
