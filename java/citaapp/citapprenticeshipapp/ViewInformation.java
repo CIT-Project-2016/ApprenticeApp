@@ -18,7 +18,7 @@ public class ViewInformation extends AppCompatActivity
 
     EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate;
 
-    TextView RPLlbl, TPClbl;
+    TextView RPLlbl, TPClbl, txtViewNote;
 
     Button editBtn;
 
@@ -41,7 +41,7 @@ public class ViewInformation extends AppCompatActivity
             txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
             txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
-
+            txtViewNote.setText(preferenceSettings.getString("Notepad", "Notepad"));
             RPLlbl.setText(preferenceSettings.getString("RPL", "No"));
             TPClbl.setText(preferenceSettings.getString("Training Plan", "No"));
 
@@ -70,7 +70,7 @@ public class ViewInformation extends AppCompatActivity
         txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
         txtLlnDate = (EditText) findViewById(R.id.txtLlnDate);
         txtClassDate = (EditText) findViewById(R.id.txtClassDate);
-
+        txtViewNote = (TextView) findViewById(R.id.txtViewNote);
         RPLlbl = (TextView) findViewById(R.id.lblRPL);
         TPClbl = (TextView) findViewById(R.id.lblTPC);
 
