@@ -4,6 +4,7 @@ package citaapp.citapprenticeshipapp;
  * Created by Donald on 7/11/2016.
  */
 
+
 public class CITDepartment
 {
     private int deptId;
@@ -31,43 +32,15 @@ public class CITDepartment
         this.deptEmail = email;
     }
 
-    public void setID(int id)
-    {
-        this.deptId = id;
-    }
+    //setters
+    public void setID(int id)           {this.deptId = id;}
+    public void setName(String name)    {this.deptName = name;}
+    public void setPhone(String phone)  {this.deptPhone = phone;}
+    public void setEmail(String email)  {this.deptEmail = email;}
 
-    public void setName(String name)
-    {
-        this.deptName = name;
-    }
-
-    public void setPhone(String phone)
-    {
-        this.deptPhone = phone;
-    }
-
-    public void setEmail(String email)
-    {
-        this.deptEmail = email;
-    }
-
-    public int getId()
-    {
-        return deptId;
-    }
-
-    public String getName()
-    {
-        return deptName;
-    }
-
-    public String getPhone()
-    {
-        return deptPhone;
-    }
-
-    public String getEmail()
-    {
-        return deptEmail;
-    }
+    //getters
+    public int getId()       {return deptId;}
+    public String getName()  {return deptName;}
+    public String getPhone() {return deptPhone;}
+    public String getEmail() {return deptEmail;}
 }

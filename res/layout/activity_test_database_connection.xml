@@ -11,11 +11,11 @@
     tools:context="citaapp.citapprenticeshipapp.TestDatabaseConnection">
 
     <Button
-        android:text="View Departments"
+        android:text="Connect to DB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="47dp"
-        android:id="@+id/btnViewDepartments"
+        android:id="@+id/btnConnectToDb"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtOutput"
-        android:layout_below="@+id/btnViewDepartments"
+        android:layout_below="@+id/btnConnectToDb"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -35,5 +35,13 @@
         android:id="@+id/btnTestLocalDB"
         android:layout_below="@+id/txtOutput"
         android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnTestLocalDB"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:id="@+id/spnList" />
 
 </RelativeLayout>

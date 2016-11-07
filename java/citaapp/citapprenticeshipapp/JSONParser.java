@@ -130,6 +130,7 @@ class JSONParser
 
             stringResult = sbResult.toString();
 
+            //remove the leading <> angle brackets from the start of the string so that it can be parsed correctly
             int trimIndex = stringResult.indexOf(">");
             stringResult = stringResult.substring(trimIndex + 1);
 

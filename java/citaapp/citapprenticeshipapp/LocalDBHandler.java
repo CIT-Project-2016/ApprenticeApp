@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by manager on 7/11/2016.
+ * Created by Donald on 7/11/2016.
  */
 
 public class LocalDBHandler extends SQLiteOpenHelper {
@@ -33,7 +33,7 @@ public class LocalDBHandler extends SQLiteOpenHelper {
             String createTable = "CREATE TABLE " + TABLE_NAME + "("
                     + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, "
                     + KEY_PHONE + " TEXT, " + KEY_EMAIL + " TEXT" + ")";
-            Log.d("creating table: ", createTable);
+            Log.d("creating table", createTable);
             db.execSQL(createTable);
         }
         catch(Exception e)
@@ -74,22 +74,6 @@ public class LocalDBHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-        StringBuilder sbColumnOutput = new StringBuilder();
-        String[] columns = cursor.getColumnNames();
-
-        int a = 1;
-        for( String column : columns)
-        {
-            sbColumnOutput.append(column);
-            sbColumnOutput.append(": ");
-            //sbColumnOutput.append(cursor.getType(2));
-            sbColumnOutput.append(", ");
-            a++;
-        }
-
-        String columnOutput = sbColumnOutput.toString();
-         Log.d("Columns:", columnOutput);
 
         if (cursor.moveToFirst()) {
             do {

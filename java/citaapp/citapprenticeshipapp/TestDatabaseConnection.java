@@ -4,85 +4,81 @@ package citaapp.citapprenticeshipapp;
 import android.app.Activity;
 import android.util.Log;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class TestDatabaseConnection extends AppCompatActivity {
 
-    // Progress Dialog
-    //private ProgressDialog pDialog;
-
-    // Creating JSON Parser object
-    //JSONParser jParser = new JSONParser();
-
-    //ArrayList<HashMap<String, String>> productsList;
-
-    Button btnViewDepartments;
+    Button btnConnectToDb;
     Button btnTestLocalDB;
+
+    Spinner spnList;
+
     TextView txtOutput;
 
     LocalDBHandler db;
-    //JSONArray jsonArray;
-    //JSONObject jsonRootObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_database_connection);
         txtOutput = (TextView) findViewById(R.id.txtOutput);
-        String strJson = "{\"Employee\" :[" +
-                "{\"id\":\"01\",\"name\":\"Gopal Varma\",\"salary\":\"500000\"}," +
-                "{\"id\":\"02\",\"name\":\"Sairamkrishna\",\"salary\":\"500000\"}," +
-                "{\"id\":\"03\",\"name\":\"Sathish kallakuri\",\"salary\":\"600000\"}" +
-                "]}";
 
-        //printOutput(strJson);
-        //new GetDetails(this).execute();
-
-        btnViewDepartments = (Button) findViewById(R.id.btnViewDepartments);
-        btnViewDepartments.setOnClickListener(new View.OnClickListener() {
+        btnConnectToDb = (Button) findViewById(R.id.btnConnectToDb);
+        btnConnectToDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GetAllDetails(TestDatabaseConnection.this).execute();
+                new SyncDepartmentDB(TestDatabaseConnection.this).execute();
             }
         });
 
+        final Activity me = this;
         db = new LocalDBHandler(this);
-        Log.d("ok: ", "did it work?");
+        spnList = (Spinner) findViewById(R.id.spnList);
 
         btnTestLocalDB = (Button) findViewById(R.id.btnTestLocalDB);
         btnTestLocalDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Insert: ", "Inserting ..");
-                //db.addDept(new CITDepartment("hello", "02954544", "23423@gtrni.com"));
 
+                Log.d("Department", "Getting results...");
+                List<String> lstName = new ArrayList<String>();
                 List<CITDepartment> depts = db.getAllDepartments();
+
                 for (CITDepartment dept : depts)
                 {
+                    lstName.add(dept.getName());
+
                     String log = "Id: " + dept.getId() + ", Name: " + dept.getName()
                             + ", Phone: " + dept.getPhone() + ", Email: " + dept.getEmail();
 
-                    Log.d("Dept: : ", log);
+                    Log.d("Department", log);
                 }
+
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(me,
+                        android.R.layout.simple_spinner_item, lstName);
+
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                spnList.setAdapter(dataAdapter);
             }
         });
+
+
+
+
+
     }
 }
+
 
     /*
     void printOutput(String inStrJson)
