@@ -27,4 +27,13 @@
         android:layout_below="@+id/btnViewDepartments"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:text="Test Local DB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:id="@+id/btnTestLocalDB"
+        android:layout_below="@+id/txtOutput"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
