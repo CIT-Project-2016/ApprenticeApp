@@ -1,12 +1,12 @@
 package citaapp.citapprenticeshipapp;
 
-
 import android.app.Activity;
 import android.util.Log;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -24,7 +24,12 @@ public class TestDatabaseConnection extends AppCompatActivity {
 
     TextView txtOutput;
 
+    TextView lblDeptPhone;
+    TextView lblDeptEmail;
+
     LocalDBHandler db;
+
+    List<CITDepartment> depts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +55,10 @@ public class TestDatabaseConnection extends AppCompatActivity {
             public void onClick(View view) {
 
                 Log.d("Department", "Getting results...");
+
+                depts = db.getAllDepartments();
+
                 List<String> lstName = new ArrayList<String>();
-                List<CITDepartment> depts = db.getAllDepartments();
 
                 for (CITDepartment dept : depts)
                 {
@@ -59,7 +66,6 @@ public class TestDatabaseConnection extends AppCompatActivity {
 
                     String log = "Id: " + dept.getId() + ", Name: " + dept.getName()
                             + ", Phone: " + dept.getPhone() + ", Email: " + dept.getEmail();
-
                     Log.d("Department", log);
                 }
 
@@ -72,8 +78,23 @@ public class TestDatabaseConnection extends AppCompatActivity {
             }
         });
 
+        lblDeptEmail = (TextView) findViewById(R.id.lblDeptEmail);
+        lblDeptPhone = (TextView) findViewById(R.id.lblDeptPhone);
 
+        spnList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                lblDeptPhone.setText(depts.get(position).getPhone());
+                lblDeptEmail.setText(depts.get(position).getEmail());
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
 
 
     }

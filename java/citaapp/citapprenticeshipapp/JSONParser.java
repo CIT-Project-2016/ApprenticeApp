@@ -34,7 +34,6 @@ class JSONParser
 
     public JSONObject makeHttpRequest(String url, String method,
                                       HashMap<String, String> params) {
-
         //handling parameters
         sbParams = new StringBuilder();
         int i = 0;

@@ -44,4 +44,24 @@
         android:layout_marginTop="72dp"
         android:id="@+id/spnList" />
 
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spnList"
+        android:layout_alignRight="@+id/txtOutput"
+        android:layout_alignEnd="@+id/txtOutput"
+        android:layout_marginTop="56dp"
+        android:id="@+id/lblDeptPhone" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblDeptPhone"
+        android:layout_alignLeft="@+id/lblDeptPhone"
+        android:layout_alignStart="@+id/lblDeptPhone"
+        android:layout_marginTop="19dp"
+        android:id="@+id/lblDeptEmail" />
+
 </RelativeLayout>
