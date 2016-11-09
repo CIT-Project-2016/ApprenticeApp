@@ -1,6 +1,5 @@
 package citaapp.citapprenticeshipapp;
 
-import android.app.Activity;
 import android.util.Log;
 
 import android.support.v7.app.AppCompatActivity;
@@ -22,81 +21,58 @@ public class TestDatabaseConnection extends AppCompatActivity {
 
     Spinner spnList;
 
-    TextView txtOutput;
-
     TextView lblDeptPhone;
     TextView lblDeptEmail;
 
-    LocalDBHandler db;
+    DBHandler dbHandler;
 
     List<CITDepartment> depts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_database_connection);
-        txtOutput = (TextView) findViewById(R.id.txtOutput);
+
+        dbHandler = new DBHandler(this);
+
+        spnList = (Spinner) findViewById(R.id.spnList);
+
+        dbHandler.initSpinner(spnList);
+
+        lblDeptEmail = (TextView) findViewById(R.id.lblDeptEmail);
+        lblDeptPhone = (TextView) findViewById(R.id.lblDeptPhone);
 
         btnConnectToDb = (Button) findViewById(R.id.btnConnectToDb);
         btnConnectToDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new SyncDepartmentDB(TestDatabaseConnection.this).execute();
+                //new SyncDepartmentDB(TestDatabaseConnection.this).execute();
+                dbHandler.syncDB();
             }
         });
-
-        final Activity me = this;
-        db = new LocalDBHandler(this);
-        spnList = (Spinner) findViewById(R.id.spnList);
 
         btnTestLocalDB = (Button) findViewById(R.id.btnTestLocalDB);
         btnTestLocalDB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Log.d("Department", "Getting results...");
-
-                depts = db.getAllDepartments();
-
-                List<String> lstName = new ArrayList<String>();
-
-                for (CITDepartment dept : depts)
-                {
-                    lstName.add(dept.getName());
-
-                    String log = "Id: " + dept.getId() + ", Name: " + dept.getName()
-                            + ", Phone: " + dept.getPhone() + ", Email: " + dept.getEmail();
-                    Log.d("Department", log);
-                }
-
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(me,
-                        android.R.layout.simple_spinner_item, lstName);
-
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                spnList.setAdapter(dataAdapter);
             }
         });
-
-        lblDeptEmail = (TextView) findViewById(R.id.lblDeptEmail);
-        lblDeptPhone = (TextView) findViewById(R.id.lblDeptPhone);
 
         spnList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
-                lblDeptPhone.setText(depts.get(position).getPhone());
-                lblDeptEmail.setText(depts.get(position).getEmail());
+                lblDeptPhone.setText(dbHandler.getDeptsList().get(position).getPhone());
+                lblDeptEmail.setText(dbHandler.getDeptsList().get(position).getEmail());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
                 // your code here
             }
-
         });
-
-
     }
 }
 

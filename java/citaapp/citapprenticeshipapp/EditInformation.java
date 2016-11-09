@@ -62,8 +62,6 @@ public class EditInformation extends AppCompatActivity {
         }
     }
 
-
-
     private void saveAllPrefs()
     {
         try
@@ -91,7 +89,6 @@ public class EditInformation extends AppCompatActivity {
             else{
                 saveToPrefs("Training Plan", "No");
             }
-
 
             Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
         }
