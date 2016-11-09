@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,7 +19,7 @@ import java.util.Calendar;
 
 public class EditInformation extends AppCompatActivity {
 
-    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate;
+    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate, txtEditNote;
 
     RadioButton rbtRPLYes, rbtTrainingYes, rbtRPLNo, rbtTrainingNo;
 
@@ -78,7 +79,7 @@ public class EditInformation extends AppCompatActivity {
             saveToPrefs("Department Email",  txtDeptEmail.getText().toString());
             saveToPrefs("LLN Date", txtLlnDate.getText().toString());
             saveToPrefs("Class Start Date", txtClassDate.getText().toString());
-
+            saveToPrefs("Notepad", txtEditNote.getText().toString());
             if(rbtRPLYes.isChecked()){
                 saveToPrefs("RPL", "Yes");
             }
@@ -120,7 +121,7 @@ public class EditInformation extends AppCompatActivity {
             txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
             txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
-
+            txtEditNote.setText(preferenceSettings.getString("Notepad", "Notepad"));
             if("Yes".equals(preferenceSettings.getString("RPL","Yes"))){
                 rbtRPLYes.setChecked(true);
             }
@@ -160,6 +161,7 @@ public class EditInformation extends AppCompatActivity {
         txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
         txtLlnDate = (EditText) findViewById(R.id.txtLlnDate);
         txtClassDate = (EditText) findViewById(R.id.txtClassDate);
+        txtEditNote = (EditText) findViewById(R.id.txtEditNote);
         rbtRPLYes = (RadioButton) findViewById(R.id.rbtRPLYes);
         rbtRPLNo = (RadioButton) findViewById(R.id.rbtRPLNo);
         rbtTrainingYes = (RadioButton) findViewById(R.id.rbtTrainingYes);
@@ -190,8 +192,7 @@ public class EditInformation extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-
+        txtEditNote.setMovementMethod(null);
 
         txtClassDate.setOnClickListener(new View.OnClickListener() {
             @Override
