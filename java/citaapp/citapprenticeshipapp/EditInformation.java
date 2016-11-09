@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -80,18 +81,15 @@ public class EditInformation extends AppCompatActivity {
             saveToPrefs("LLN Date", txtLlnDate.getText().toString());
             saveToPrefs("Class Start Date", txtClassDate.getText().toString());
 
-            if(rbtRPLYes.isChecked()){
+            if(rbtRPLYes.isChecked())
                 saveToPrefs("RPL", "Yes");
-            }
-            else{
+            else
                 saveToPrefs("RPL", "No");
-            }
-            if(rbtTrainingYes.isChecked()){
+
+            if(rbtTrainingYes.isChecked())
                 saveToPrefs("Training Plan", "Yes");
-            }
-            else{
+            else
                 saveToPrefs("Training Plan", "No");
-            }
 
             Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
         }
@@ -102,6 +100,19 @@ public class EditInformation extends AppCompatActivity {
         }
     }
 
+    private void setSpinnerSelection()
+    {
+        for (CITDepartment tempDept : dbHandler.getDeptsList())
+        {
+            Log.d("testing department", tempDept.getName());
+            if(tempDept.getName().equals(preferenceSettings.getString("Department Name", "Not Found")))
+            {
+                spnDeptName.setSelection(tempDept.getId()-1);
+                Log.d("Found","This is the selection.");
+                //break;
+            }
+        }
+    }
     //just separated these into this separate method for cleanliness..
     //just setting the text fields to the current values saved
     private void loadPrefs()
@@ -118,23 +129,22 @@ public class EditInformation extends AppCompatActivity {
             //txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
             //txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
             //txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
+
+            setSpinnerSelection();
+
             txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
 
-            if("Yes".equals(preferenceSettings.getString("RPL","Yes"))){
+
+            if("Yes".equals(preferenceSettings.getString("RPL","Yes")))
                 rbtRPLYes.setChecked(true);
-            }
             else
-            {
                 rbtRPLNo.setChecked(true);
-            }
-            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes"))){
+
+            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes")))
                 rbtTrainingYes.setChecked(true);
-            }
             else
-            {
                 rbtTrainingNo.setChecked(true);
-            }
 
         }
         catch(Exception e)
@@ -155,9 +165,6 @@ public class EditInformation extends AppCompatActivity {
         txtAnpName = (EditText) findViewById(R.id.txtAnpName);
         txtAnpPhone = (EditText) findViewById(R.id.txtAnpPhone);
         txtAnpEmail = (EditText) findViewById(R.id.txtAnpEmail);
-        //txtDeptName = (EditText) findViewById(R.id.txtDeptName);
-        //txtDeptPhone = (EditText) findViewById(R.id.txtDeptPhone);
-        //txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
 
         spnDeptName = (Spinner) findViewById(R.id.spnDeptName);
         lblDeptPhone = (TextView) findViewById(R.id.lblDeptPhone);
