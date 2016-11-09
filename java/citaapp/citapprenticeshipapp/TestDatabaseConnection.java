@@ -26,7 +26,7 @@ public class TestDatabaseConnection extends AppCompatActivity {
 
     DBHandler dbHandler;
 
-    List<CITDepartment> depts;
+    //List<CITDepartment> depts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
