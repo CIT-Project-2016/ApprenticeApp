@@ -2,33 +2,37 @@ package citaapp.citapprenticeshipapp;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
 public class EditInformation extends AppCompatActivity {
 
-    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate;
+    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail,  txtLlnDate, txtClassDate;
+    //EditText txtDeptName, txtDeptPhone, txtDeptEmail;
 
     RadioButton rbtRPLYes, rbtTrainingYes, rbtRPLNo, rbtTrainingNo;
 
     DatePickerDialog datePickerDialog;
 
+    Button btnSave, btnCancel;
 
+    Spinner spnDeptName;
 
-    Button saveBtn;
+    TextView lblDeptPhone, lblDeptEmail;
 
-    Button cancelBtn;
+    DBHandler dbHandler;
 
     SharedPreferences preferenceSettings;
     SharedPreferences.Editor preferenceEditor;
@@ -43,7 +47,6 @@ public class EditInformation extends AppCompatActivity {
         preferenceEditor.putString(key, value);
         preferenceEditor.apply();
     }
-
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -62,8 +65,6 @@ public class EditInformation extends AppCompatActivity {
         }
     }
 
-
-
     private void saveAllPrefs()
     {
         try
@@ -73,9 +74,9 @@ public class EditInformation extends AppCompatActivity {
             saveToPrefs("ANP Name",  txtAnpName.getText().toString());
             saveToPrefs("ANP Phone",  txtAnpPhone.getText().toString());
             saveToPrefs("ANP Email",  txtAnpEmail.getText().toString());
-            saveToPrefs("Department Name",  txtDeptName.getText().toString());
-            saveToPrefs("Department Phone",  txtDeptPhone.getText().toString());
-            saveToPrefs("Department Email",  txtDeptEmail.getText().toString());
+            saveToPrefs("Department Name",  spnDeptName.getSelectedItem().toString());
+            saveToPrefs("Department Phone",  lblDeptPhone.getText().toString());
+            saveToPrefs("Department Email",  lblDeptEmail.getText().toString());
             saveToPrefs("LLN Date", txtLlnDate.getText().toString());
             saveToPrefs("Class Start Date", txtClassDate.getText().toString());
 
@@ -91,7 +92,6 @@ public class EditInformation extends AppCompatActivity {
             else{
                 saveToPrefs("Training Plan", "No");
             }
-
 
             Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
         }
@@ -115,9 +115,9 @@ public class EditInformation extends AppCompatActivity {
             txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
             txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
             txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
-            txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
-            txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
-            txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
+            //txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
+            //txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
+            //txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
             txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
 
@@ -155,9 +155,14 @@ public class EditInformation extends AppCompatActivity {
         txtAnpName = (EditText) findViewById(R.id.txtAnpName);
         txtAnpPhone = (EditText) findViewById(R.id.txtAnpPhone);
         txtAnpEmail = (EditText) findViewById(R.id.txtAnpEmail);
-        txtDeptName = (EditText) findViewById(R.id.txtDeptName);
-        txtDeptPhone = (EditText) findViewById(R.id.txtDeptPhone);
-        txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
+        //txtDeptName = (EditText) findViewById(R.id.txtDeptName);
+        //txtDeptPhone = (EditText) findViewById(R.id.txtDeptPhone);
+        //txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
+
+        spnDeptName = (Spinner) findViewById(R.id.spnDeptName);
+        lblDeptPhone = (TextView) findViewById(R.id.lblDeptPhone);
+        lblDeptEmail = (TextView) findViewById(R.id.lblDeptEmail);
+
         txtLlnDate = (EditText) findViewById(R.id.txtLlnDate);
         txtClassDate = (EditText) findViewById(R.id.txtClassDate);
         rbtRPLYes = (RadioButton) findViewById(R.id.rbtRPLYes);
@@ -165,6 +170,25 @@ public class EditInformation extends AppCompatActivity {
         rbtTrainingYes = (RadioButton) findViewById(R.id.rbtTrainingYes);
         rbtTrainingNo = (RadioButton) findViewById(R.id.rbtTrainingNo);
 
+
+        //
+        dbHandler = new DBHandler(this);
+        dbHandler.initSpinner(spnDeptName);
+
+
+        spnDeptName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                lblDeptPhone.setText(dbHandler.getDeptsList().get(position).getPhone());
+                lblDeptEmail.setText(dbHandler.getDeptsList().get(position).getEmail());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
 
         txtLlnDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,8 +215,6 @@ public class EditInformation extends AppCompatActivity {
             }
         });
 
-
-
         txtClassDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -218,8 +240,8 @@ public class EditInformation extends AppCompatActivity {
             }
         });
 
-        saveBtn = (Button) findViewById(R.id.btnSave);
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
@@ -230,8 +252,8 @@ public class EditInformation extends AppCompatActivity {
             }
         });
 
-        cancelBtn = (Button) findViewById(R.id.btnCancel);
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
+        btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {

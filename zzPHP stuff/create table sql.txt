@@ -1,0 +1,17 @@
+DROP DATABASE testDB;
+CREATE DATABASE testDB;
+
+USE testDB;
+
+CREATE TABLE departments
+(
+dept_id 	int(8),
+dept_name 	varchar(40),
+dept_phone 		varchar(16),
+dept_email 		varchar(40),
+PRIMARY KEY (dept_id)
+);
+
+INSERT INTO departments VALUES (1, 'Hospitality', '02 6211 1111', 'hospitality@cit.edu.au');
+INSERT INTO departments VALUES (2, 'Automotive', '02 6212 2222', 'automotive@cit.edu.au');
+INSERT INTO departments VALUES (3, 'Hairdressing', '02 6213 3333', 'hairdressing@cit.edu.au');

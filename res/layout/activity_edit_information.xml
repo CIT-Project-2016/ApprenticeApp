@@ -250,15 +250,11 @@
                     android:layout_marginLeft="10dp"
                     />
 
-                <EditText
+                <Spinner
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/txtDeptName"
-                    android:textSize="15sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="text"
-                    android:maxLines="1"  />
+                    android:layout_height="match_parent"
+                    android:id="@+id/spnDeptName" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -277,15 +273,12 @@
                     android:layout_marginLeft="10dp"
                     />
 
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/txtDeptPhone"
-                    android:textSize="15sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="phone"
-                    android:maxLines="1"  />
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblDeptPhone"
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -303,15 +296,13 @@
                     android:id="@+id/textView21"
                     android:layout_marginLeft="10dp"
                     />
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:id="@+id/txtDeptEmail"
-                    android:textSize="15sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"  />
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lblDeptEmail"
+                    android:layout_weight="1" />
 
             </LinearLayout>
 

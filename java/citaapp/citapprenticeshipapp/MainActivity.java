@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnTimeline, btnInfo;
+    Button btnTimeline, btnInfo, btnTestDb;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -28,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ViewInformation.class));
+            }
+        });
+
+        btnTestDb = (Button) findViewById(R.id.btnTestDb);
+        btnTestDb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TestDatabaseConnection.class));
             }
         });
     }

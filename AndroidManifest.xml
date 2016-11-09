@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="citaapp.citapprenticeshipapp">
 
+
+    <!-- Internet Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +28,8 @@
         <activity android:name=".EnrolmentTrainingPlan" />
         <activity android:name=".EnrolmentComplete" />
         <activity android:name=".EditInformation" />
-        <activity android:name=".ViewInformation"></activity>
+        <activity android:name=".ViewInformation" />
+        <activity android:name=".TestDatabaseConnection"/>
     </application>
 
 </manifest>
