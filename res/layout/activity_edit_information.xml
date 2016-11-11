@@ -449,22 +449,7 @@
                 android:focusableInTouchMode="false"
                 android:maxLines="1"
                 /><!-- need to set this focusableInTouchMode=false so that click event to bring up date picker works properly.-->
-            <EditText
-                android:text="NotePad"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="20dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/notelist"
-                android:id="@+id/txtEditNote"
-                android:maxLength="330"
-                android:textSize="15sp"
-                android:gravity="top"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                />
+
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>
