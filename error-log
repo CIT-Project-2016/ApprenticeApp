@@ -1,1 +1,9 @@
-I/SQLiteConnectionPool: The connection pool for /data/user/0/citaapp.citapprenticeshipapp/databases/deptDB.db has been closed but there are still 1 connections in use.  They will be closed as they are released back to the pool.
+While testing DBHandler...
+
+"
+I/SQLiteConnectionPool: The connection pool for /data/user/0/citaapp.citapprenticeshipapp/databases/deptDB.db has been closed but 
+there are still 1 connections in use.  They will be closed as they are released back to the pool.
+"
+- Donald
+I added a line "db.close();" in the onCreate method of DBHandler. Unsure if this fixes it as the error has only popped up once so far
+so I am unsure if i will be able to recreate it.
