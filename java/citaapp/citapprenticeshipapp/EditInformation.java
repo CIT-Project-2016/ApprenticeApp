@@ -2,34 +2,37 @@ package citaapp.citapprenticeshipapp;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.text.method.ScrollingMovementMethod;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Calendar;
-
+import android.view.ViewGroup.LayoutParams;
 public class EditInformation extends AppCompatActivity {
 
     EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate, txtEditNote;
 
     RadioButton rbtRPLYes, rbtTrainingYes, rbtRPLNo, rbtTrainingNo;
+    LayoutInflater layoutInflater;
+    PopupWindow popupNotepad;
+
 
     DatePickerDialog datePickerDialog;
 
+    Button saveBtn, cancelBtn, btnSaveNote, btnCancelNote;
 
-
-    Button saveBtn;
-
-    Button cancelBtn;
 
     SharedPreferences preferenceSettings;
     SharedPreferences.Editor preferenceEditor;
@@ -166,8 +169,34 @@ public class EditInformation extends AppCompatActivity {
         rbtRPLNo = (RadioButton) findViewById(R.id.rbtRPLNo);
         rbtTrainingYes = (RadioButton) findViewById(R.id.rbtTrainingYes);
         rbtTrainingNo = (RadioButton) findViewById(R.id.rbtTrainingNo);
+        btnCancelNote = (Button)popupNotepad.getContentView().findViewById(R.id.btnCancelNote);
+        btnSaveNote = (Button)popupNotepad.getContentView().findViewById(R.id.btnSaveNote);
+        //triggers when the user clicks on the notepad
+        txtEditNote.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //creates a popup window
+                layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup)layoutInflater.inflate(R.layout.popup_notepad,null);
+                popupNotepad = new PopupWindow(container,LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT,true);
+       
+                popupNotepad.showAtLocation(v,Gravity.CENTER,0,0);
+                //get contents from edit text
+                ((TextView)popupNotepad.getContentView().findViewById(R.id.editNote)).setText(txtEditNote.getText());
 
 
+
+            }
+        });
+        btnCancelNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+
+               popupNotepad.dismiss();
+            }
+        });
         txtLlnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,9 +221,8 @@ public class EditInformation extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-        txtEditNote.setMovementMethod(null);
-
-        txtClassDate.setOnClickListener(new View.OnClickListener() {
+            txtEditNote.setMovementMethod(new ScrollingMovementMethod());
+            txtClassDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // calender class's instance and get current date , month and year from calender
