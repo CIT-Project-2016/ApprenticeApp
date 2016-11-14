@@ -38,121 +38,6 @@ public class EditInformation extends AppCompatActivity {
     SharedPreferences preferenceSettings;
     SharedPreferences.Editor preferenceEditor;
 
-    //separated the putString code into this separate method
-    //takes the key and value strings and puts into Shared Preferences file
-    private void saveToPrefs(String key, String value)
-    {
-        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
-        preferenceEditor = preferenceSettings.edit();
-
-        preferenceEditor.putString(key, value);
-        preferenceEditor.apply();
-    }
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.rbtTrainingYes:
-                if (checked)
-
-                    break;
-            case R.id.rbtTrainingNo:
-                if (checked)
-
-                    break;
-        }
-    }
-
-    private void saveAllPrefs()
-    {
-        try
-        {
-            saveToPrefs("USI",  txtUsi.getText().toString());
-            saveToPrefs("CIT Number",  txtCitNum.getText().toString());
-            saveToPrefs("ANP Name",  txtAnpName.getText().toString());
-            saveToPrefs("ANP Phone",  txtAnpPhone.getText().toString());
-            saveToPrefs("ANP Email",  txtAnpEmail.getText().toString());
-            saveToPrefs("Department Name",  spnDeptName.getSelectedItem().toString());
-            saveToPrefs("Department Phone",  lblDeptPhone.getText().toString());
-            saveToPrefs("Department Email",  lblDeptEmail.getText().toString());
-            saveToPrefs("LLN Date", txtLlnDate.getText().toString());
-            saveToPrefs("Class Start Date", txtClassDate.getText().toString());
-
-            if(rbtRPLYes.isChecked())
-                saveToPrefs("RPL", "Yes");
-            else
-                saveToPrefs("RPL", "No");
-
-            if(rbtTrainingYes.isChecked())
-                saveToPrefs("Training Plan", "Yes");
-            else
-                saveToPrefs("Training Plan", "No");
-
-            Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-    }
-
-    private void setSpinnerSelection()
-    {
-        for (CITDepartment tempDept : dbHandler.getDeptsList())
-        {
-            Log.d("testing department", tempDept.getName());
-            if(tempDept.getName().equals(preferenceSettings.getString("Department Name", "Not Found")))
-            {
-                spnDeptName.setSelection(tempDept.getId()-1);
-                Log.d("Found","This is the selection.");
-                //break;
-            }
-        }
-    }
-    //just separated these into this separate method for cleanliness..
-    //just setting the text fields to the current values saved
-    private void loadPrefs()
-    {
-        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
-        preferenceEditor = preferenceSettings.edit();
-
-        try {
-            txtUsi.setText(preferenceSettings.getString("USI", "Not Found"));
-            txtCitNum.setText(preferenceSettings.getString("CIT Number", "Not Found"));
-            txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
-            txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
-            txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
-            //txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
-            //txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
-            //txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
-
-            setSpinnerSelection();
-
-            txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
-            txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
-
-
-            if("Yes".equals(preferenceSettings.getString("RPL","Yes")))
-                rbtRPLYes.setChecked(true);
-            else
-                rbtRPLNo.setChecked(true);
-
-            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes")))
-                rbtTrainingYes.setChecked(true);
-            else
-                rbtTrainingNo.setChecked(true);
-
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -276,4 +161,122 @@ public class EditInformation extends AppCompatActivity {
         super.onStart(); //Always call the superclass method first
         loadPrefs();
     }
+
+    private void setSpinnerSelection()
+    {
+        for (CITDepartment tempDept : dbHandler.getDeptsList())
+        {
+            Log.d("testing department", tempDept.getName());
+            if(tempDept.getName().equals(preferenceSettings.getString("Department Name", "Not Found")))
+            {
+                spnDeptName.setSelection(tempDept.getId()-1);
+                Log.d("Found","This is the selection.");
+                //break;
+            }
+        }
+    }
+
+    //separated the putString code into this separate method
+    //takes the key and value strings and puts into Shared Preferences file
+    private void saveToPrefs(String key, String value)
+    {
+        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+        preferenceEditor = preferenceSettings.edit();
+
+        preferenceEditor.putString(key, value);
+        preferenceEditor.apply();
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.rbtTrainingYes:
+                if (checked)
+
+                    break;
+            case R.id.rbtTrainingNo:
+                if (checked)
+
+                    break;
+        }
+    }
+
+    private void saveAllPrefs()
+    {
+        try
+        {
+            saveToPrefs("USI",  txtUsi.getText().toString());
+            saveToPrefs("CIT Number",  txtCitNum.getText().toString());
+            saveToPrefs("ANP Name",  txtAnpName.getText().toString());
+            saveToPrefs("ANP Phone",  txtAnpPhone.getText().toString());
+            saveToPrefs("ANP Email",  txtAnpEmail.getText().toString());
+            saveToPrefs("Department Name",  spnDeptName.getSelectedItem().toString());
+            saveToPrefs("Department Phone",  lblDeptPhone.getText().toString());
+            saveToPrefs("Department Email",  lblDeptEmail.getText().toString());
+            saveToPrefs("LLN Date", txtLlnDate.getText().toString());
+            saveToPrefs("Class Start Date", txtClassDate.getText().toString());
+
+            if(rbtRPLYes.isChecked())
+                saveToPrefs("RPL", "Yes");
+            else
+                saveToPrefs("RPL", "No");
+
+            if(rbtTrainingYes.isChecked())
+                saveToPrefs("Training Plan", "Yes");
+            else
+                saveToPrefs("Training Plan", "No");
+
+            Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+    }
+
+
+    //just separated these into this separate method for cleanliness..
+    //just setting the text fields to the current values saved
+    private void loadPrefs()
+    {
+        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+        preferenceEditor = preferenceSettings.edit();
+
+        try {
+            txtUsi.setText(preferenceSettings.getString("USI", "Not Found"));
+            txtCitNum.setText(preferenceSettings.getString("CIT Number", "Not Found"));
+            txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
+            txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
+            txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
+            //txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
+            //txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
+            //txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
+
+            setSpinnerSelection();
+
+            txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
+            txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
+
+
+            if("Yes".equals(preferenceSettings.getString("RPL","Yes")))
+                rbtRPLYes.setChecked(true);
+            else
+                rbtRPLNo.setChecked(true);
+
+            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes")))
+                rbtTrainingYes.setChecked(true);
+            else
+                rbtTrainingNo.setChecked(true);
+
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

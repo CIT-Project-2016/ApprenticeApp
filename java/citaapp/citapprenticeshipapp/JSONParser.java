@@ -70,7 +70,7 @@ class JSONParser
                 conn.setRequestProperty("Accept-Charset", CHARSET);
 
                 conn.setReadTimeout(10000);
-                conn.setConnectTimeout(15000);
+                conn.setConnectTimeout(10000);
 
                 conn.connect();
 
