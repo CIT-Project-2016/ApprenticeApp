@@ -180,11 +180,14 @@ public class EditInformation extends AppCompatActivity {
     //takes the key and value strings and puts into Shared Preferences file
     private void saveToPrefs(String key, String value)
     {
-        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
-        preferenceEditor = preferenceSettings.edit();
+        if (value != null && value != "")
+        {
+            preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+            preferenceEditor = preferenceSettings.edit();
 
-        preferenceEditor.putString(key, value);
-        preferenceEditor.apply();
+            preferenceEditor.putString(key, value);
+            preferenceEditor.apply();
+        }
     }
 
     public void onRadioButtonClicked(View view) {
@@ -233,7 +236,7 @@ public class EditInformation extends AppCompatActivity {
         }
         catch (Exception e)
         {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }

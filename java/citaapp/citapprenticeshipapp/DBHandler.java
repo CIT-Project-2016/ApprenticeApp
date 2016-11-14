@@ -44,7 +44,7 @@ public class DBHandler extends SQLiteOpenHelper {
         super(inContext, DATABASE_NAME, null, DATABASE_VERSION);
         context = inContext;
 
-        clearLocalTable();
+        //clearLocalTable();
         syncDBIfEmpty();
         Log.d("DBHandler", "Constructor.");
     }
@@ -59,6 +59,7 @@ public class DBHandler extends SQLiteOpenHelper {
             Log.d("creating table", createTable);
             db.execSQL(createTable);
 
+            db.close();
             syncDBIfEmpty();
         }
         catch(Exception e)
@@ -197,6 +198,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 tempDeptsList.add(dept);
             } while (cursor.moveToNext());
         }
+
         db.close();
 
         allDepts = tempDeptsList;
@@ -307,6 +309,7 @@ public class DBHandler extends SQLiteOpenHelper {
             // getting JSON string from URL
             try {
                 JSONObject jsonResult = jParser.makeHttpRequest(URL_GET_DETAILS, "GET", params);
+
                 if (jsonResult != null) {
                     Log.d("JSON SyncDepartmentDB: ", jsonResult.toString());
 
