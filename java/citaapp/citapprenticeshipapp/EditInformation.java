@@ -15,23 +15,19 @@ import android.widget.DatePicker;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Calendar;
-import android.view.ViewGroup.LayoutParams;
+
 public class EditInformation extends AppCompatActivity {
 
-    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate, txtEditNote;
+    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtDeptName, txtDeptPhone, txtDeptEmail, txtLlnDate, txtClassDate;
 
     RadioButton rbtRPLYes, rbtTrainingYes, rbtRPLNo, rbtTrainingNo;
-    LayoutInflater layoutInflater;
-    PopupWindow popupNotepad;
 
 
     DatePickerDialog datePickerDialog;
 
-    Button saveBtn, cancelBtn, btnSaveNote, btnCancelNote;
+    Button saveBtn, cancelBtn;
 
 
     SharedPreferences preferenceSettings;
@@ -82,7 +78,6 @@ public class EditInformation extends AppCompatActivity {
             saveToPrefs("Department Email",  txtDeptEmail.getText().toString());
             saveToPrefs("LLN Date", txtLlnDate.getText().toString());
             saveToPrefs("Class Start Date", txtClassDate.getText().toString());
-            saveToPrefs("Notepad", txtEditNote.getText().toString());
             if(rbtRPLYes.isChecked()){
                 saveToPrefs("RPL", "Yes");
             }
@@ -124,7 +119,6 @@ public class EditInformation extends AppCompatActivity {
             txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
             txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
-            txtEditNote.setText(preferenceSettings.getString("Notepad", "Notepad"));
             if("Yes".equals(preferenceSettings.getString("RPL","Yes"))){
                 rbtRPLYes.setChecked(true);
             }
@@ -164,39 +158,12 @@ public class EditInformation extends AppCompatActivity {
         txtDeptEmail = (EditText) findViewById(R.id.txtDeptEmail);
         txtLlnDate = (EditText) findViewById(R.id.txtLlnDate);
         txtClassDate = (EditText) findViewById(R.id.txtClassDate);
-        txtEditNote = (EditText) findViewById(R.id.txtEditNote);
         rbtRPLYes = (RadioButton) findViewById(R.id.rbtRPLYes);
         rbtRPLNo = (RadioButton) findViewById(R.id.rbtRPLNo);
         rbtTrainingYes = (RadioButton) findViewById(R.id.rbtTrainingYes);
         rbtTrainingNo = (RadioButton) findViewById(R.id.rbtTrainingNo);
-        btnCancelNote = (Button)popupNotepad.getContentView().findViewById(R.id.btnCancelNote);
-        btnSaveNote = (Button)popupNotepad.getContentView().findViewById(R.id.btnSaveNote);
-        //triggers when the user clicks on the notepad
-        txtEditNote.setOnClickListener( new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                //creates a popup window
-                layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                ViewGroup container = (ViewGroup)layoutInflater.inflate(R.layout.popup_notepad,null);
-                popupNotepad = new PopupWindow(container,LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT,true);
-       
-                popupNotepad.showAtLocation(v,Gravity.CENTER,0,0);
-                //get contents from edit text
-                ((TextView)popupNotepad.getContentView().findViewById(R.id.editNote)).setText(txtEditNote.getText());
 
 
-
-            }
-        });
-        btnCancelNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-
-               popupNotepad.dismiss();
-            }
-        });
         txtLlnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,7 +188,6 @@ public class EditInformation extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-            txtEditNote.setMovementMethod(new ScrollingMovementMethod());
             txtClassDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

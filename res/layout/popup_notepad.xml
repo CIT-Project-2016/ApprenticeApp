@@ -19,7 +19,7 @@
         android:background="@drawable/notelist"
         android:layout_weight=".5"
         android:maxLength="400"
-        android:id="@+id/editNote"
+        android:id="@+id/editTextNotepad"
         />
 
         <LinearLayout
