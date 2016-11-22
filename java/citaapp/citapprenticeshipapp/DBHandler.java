@@ -257,6 +257,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //this is the URL for the PHP file that will get our SQL data for CIT departments from the server we've set up..
 
+
         //"http://192.168.1.8:80/android_connect/get_details.php" is for my home PC - Donald
         //"http://10.0.2.2:80/android_connect/get_details.php" should work with emulator in the lab
         private static final String URL_GET_DETAILS = "http://10.0.2.2:80/android_connect/get_details.php";
@@ -354,10 +355,15 @@ public class DBHandler extends SQLiteOpenHelper {
             if (pDialog != null && pDialog.isShowing()) pDialog.dismiss();
 
             if (json != null)
+            {
                 Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
 
-            populateDeptsList();
-            initSpinner(spnDepts);
+                populateDeptsList();
+                initSpinner(spnDepts);
+            }
+            else
+                Toast.makeText(context, "Sorry, unable to connect to CIT Department database...", Toast.LENGTH_LONG).show();
+
         }
     }
 }
