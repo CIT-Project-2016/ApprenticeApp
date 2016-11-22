@@ -20,7 +20,7 @@ import java.util.Calendar;
 
 public class EditInformation extends AppCompatActivity {
 
-    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail,  txtLlnDate, txtClassDate;
+    EditText txtUsi, txtCitNum, txtAnpName, txtAnpPhone, txtAnpEmail, txtLlnDate, txtClassDate;
     //EditText txtDeptName, txtDeptPhone, txtDeptEmail;
 
     RadioButton rbtRPLYes, rbtTrainingYes, rbtRPLNo, rbtTrainingNo;
@@ -39,8 +39,7 @@ public class EditInformation extends AppCompatActivity {
     SharedPreferences.Editor preferenceEditor;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_information);
 
@@ -135,8 +134,7 @@ public class EditInformation extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.btnSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
 
                 saveAllPrefs();
                 //startActivity(new Intent(EditInformation.this, ViewInformation.class));
@@ -147,8 +145,7 @@ public class EditInformation extends AppCompatActivity {
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 finish(); //cancel storing information
             }
         });
@@ -156,21 +153,17 @@ public class EditInformation extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart(); //Always call the superclass method first
         loadPrefs();
     }
 
-    private void setSpinnerSelection()
-    {
-        for (CITDepartment tempDept : dbHandler.getDeptsList())
-        {
+    private void setSpinnerSelection() {
+        for (CITDepartment tempDept : dbHandler.getDeptsList()) {
             Log.d("testing department", tempDept.getName());
-            if(tempDept.getName().equals(preferenceSettings.getString("Department Name", "Not Found")))
-            {
-                spnDeptName.setSelection(tempDept.getId()-1);
-                Log.d("Found","This is the selection.");
+            if (tempDept.getName().equals(preferenceSettings.getString("Department Name", "Not Found"))) {
+                spnDeptName.setSelection(tempDept.getId() - 1);
+                Log.d("Found", "This is the selection.");
                 //break;
             }
         }
@@ -178,11 +171,9 @@ public class EditInformation extends AppCompatActivity {
 
     //separated the putString code into this separate method
     //takes the key and value strings and puts into Shared Preferences file
-    private void saveToPrefs(String key, String value)
-    {
-        if (value != null && value != "")
-        {
-            preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+    private void saveToPrefs(String key, String value) {
+        if (value != null && value != "") {
+            preferenceSettings = getSharedPreferences("myInfo", Context.MODE_PRIVATE);
             preferenceEditor = preferenceSettings.edit();
 
             preferenceEditor.putString(key, value);
@@ -195,7 +186,7 @@ public class EditInformation extends AppCompatActivity {
         boolean checked = ((RadioButton) view).isChecked();
 
         // Check which radio button was clicked
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.rbtTrainingYes:
                 if (checked)
 
@@ -207,35 +198,31 @@ public class EditInformation extends AppCompatActivity {
         }
     }
 
-    private void saveAllPrefs()
-    {
-        try
-        {
-            saveToPrefs("USI",  txtUsi.getText().toString());
-            saveToPrefs("CIT Number",  txtCitNum.getText().toString());
-            saveToPrefs("ANP Name",  txtAnpName.getText().toString());
-            saveToPrefs("ANP Phone",  txtAnpPhone.getText().toString());
-            saveToPrefs("ANP Email",  txtAnpEmail.getText().toString());
-            saveToPrefs("Department Name",  spnDeptName.getSelectedItem().toString());
-            saveToPrefs("Department Phone",  lblDeptPhone.getText().toString());
-            saveToPrefs("Department Email",  lblDeptEmail.getText().toString());
+    private void saveAllPrefs() {
+        try {
+            saveToPrefs("USI", txtUsi.getText().toString());
+            saveToPrefs("CIT Number", txtCitNum.getText().toString());
+            saveToPrefs("ANP Name", txtAnpName.getText().toString());
+            saveToPrefs("ANP Phone", txtAnpPhone.getText().toString());
+            saveToPrefs("ANP Email", txtAnpEmail.getText().toString());
+            saveToPrefs("Department Name", spnDeptName.getSelectedItem().toString());
+            saveToPrefs("Department Phone", lblDeptPhone.getText().toString());
+            saveToPrefs("Department Email", lblDeptEmail.getText().toString());
             saveToPrefs("LLN Date", txtLlnDate.getText().toString());
             saveToPrefs("Class Start Date", txtClassDate.getText().toString());
 
-            if(rbtRPLYes.isChecked())
+            if (rbtRPLYes.isChecked())
                 saveToPrefs("RPL", "Yes");
             else
                 saveToPrefs("RPL", "No");
 
-            if(rbtTrainingYes.isChecked())
+            if (rbtTrainingYes.isChecked())
                 saveToPrefs("Training Plan", "Yes");
             else
                 saveToPrefs("Training Plan", "No");
 
             Toast.makeText(getApplicationContext(), "Your information has been saved!", Toast.LENGTH_LONG).show();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
@@ -244,9 +231,8 @@ public class EditInformation extends AppCompatActivity {
 
     //just separated these into this separate method for cleanliness..
     //just setting the text fields to the current values saved
-    private void loadPrefs()
-    {
-        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+    private void loadPrefs() {
+        preferenceSettings = getSharedPreferences("myInfo", Context.MODE_PRIVATE);
         preferenceEditor = preferenceSettings.edit();
 
         try {
@@ -265,25 +251,18 @@ public class EditInformation extends AppCompatActivity {
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
 
 
-            if("Yes".equals(preferenceSettings.getString("RPL","Yes")))
+            if ("Yes".equals(preferenceSettings.getString("RPL", "Yes")))
                 rbtRPLYes.setChecked(true);
             else
                 rbtRPLNo.setChecked(true);
 
-            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes")))
+            if ("Yes".equals(preferenceSettings.getString("Training Plan", "Yes")))
                 rbtTrainingYes.setChecked(true);
             else
                 rbtTrainingNo.setChecked(true);
 
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
-
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/develop
