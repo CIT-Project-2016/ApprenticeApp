@@ -282,4 +282,8 @@ public class EditInformation extends AppCompatActivity {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/develop
