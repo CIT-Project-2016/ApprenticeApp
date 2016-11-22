@@ -29,7 +29,6 @@
         <activity android:name=".EnrolmentComplete" />
         <activity android:name=".EditInformation" />
         <activity android:name=".ViewInformation" />
-        <activity android:name=".TestDatabaseConnection"/>
     </application>
 
 </manifest>
