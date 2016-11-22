@@ -34,6 +34,7 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_EMAIL = "dept_email";
 
     private Context context; //will be the context that is calling this localdbhandler(eg. an activity)
+    private Spinner spnDepts;
 
     private List<CITDepartment> allDepts = new ArrayList<CITDepartment>();
 
@@ -42,10 +43,15 @@ public class DBHandler extends SQLiteOpenHelper {
     public DBHandler(Context inContext) {
         super(inContext, DATABASE_NAME, null, DATABASE_VERSION);
         context = inContext;
+
+        //clearLocalTable();
+        syncDBIfEmpty();
+        Log.d("DBHandler", "Constructor.");
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.d("onCreate","...");
         try {
             String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
                     + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, "
@@ -53,6 +59,7 @@ public class DBHandler extends SQLiteOpenHelper {
             Log.d("creating table", createTable);
             db.execSQL(createTable);
 
+            db.close();
             syncDBIfEmpty();
         }
         catch(Exception e)
@@ -67,10 +74,13 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void clearTable()
+    public void clearLocalTable()
     {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.d("clear table", "clearing local table");
         db.delete(TABLE_NAME, null, null);
+
         db.close();
     }
 
@@ -85,28 +95,43 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, dept.getEmail());
 
         db.insert(TABLE_NAME, null, values);
+
         db.close();
     }
 
-    public void initSpinner(Spinner spnList)
+    public void initSpinner(Spinner inSpinner)
     {
-        List<String> lstName = new ArrayList<String>();
+        //Setting the local private Spinner object to the spinner passed in to this method.
 
-        for (CITDepartment dept : getDeptsList())
+        Log.d("initSpinner", "...");
+        spnDepts = inSpinner;
+
+        if (hasTableData())
         {
-            lstName.add(dept.getName());
+            List<String> lstName = new ArrayList<String>();
+
+            for (CITDepartment dept : getDeptsList())
+            {
+                lstName.add(dept.getName());
 
 //            String log = "Id: " + dept.getId() + ", Name: " + dept.getName()
 //                    + ", Phone: " + dept.getPhone() + ", Email: " + dept.getEmail();
 //            Log.d("Department", log);
+            }
+
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
+                    android.R.layout.simple_spinner_item, lstName);
+
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spnDepts.setAdapter(dataAdapter);
+            Log.d("initSpinner", "data adapter set.");
+        }
+        else
+        {
+            Log.d("initSpinner", "can not set data adapter yet...");
         }
 
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(context,
-                android.R.layout.simple_spinner_item, lstName);
-
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spnList.setAdapter(dataAdapter);
     }
 
     public List<String> getDeptNames()
@@ -120,7 +145,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public boolean hasTableData()
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT count(*) FROM table";
+        String count = "SELECT count(*) FROM " + TABLE_NAME;
         Cursor cursor = db.rawQuery(count, null);
 
         cursor.moveToFirst();
@@ -128,12 +153,14 @@ public class DBHandler extends SQLiteOpenHelper {
         if(icount > 0)
         {
             //table has data
+            Log.d("hasTableData result", "Table has data.");
             db.close();
             return true;
         }
         else
         {
             //table is empty
+            Log.d("hasTableData result", "Table is empty.");
             db.close();
             return false;
         }
@@ -142,7 +169,10 @@ public class DBHandler extends SQLiteOpenHelper {
     public List<CITDepartment> getDeptsList()
     {
         if (allDepts.isEmpty())
+        {
+            Log.d("allDepts is empty", "populating depts list");
             populateDeptsList();
+        }
 
         return allDepts;
     }
@@ -168,6 +198,7 @@ public class DBHandler extends SQLiteOpenHelper {
                 tempDeptsList.add(dept);
             } while (cursor.moveToNext());
         }
+
         db.close();
 
         allDepts = tempDeptsList;
@@ -201,12 +232,21 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void syncDBIfEmpty()
     {
+        Log.d("SyncDBIfEmpty", "...");
         if (!hasTableData())
+        {
+            Log.d("Calling SyncDB", "From syncDBIfEmpty");
             syncDB();
+        }
+        else
+            Log.d("table has data", "From syncDBIfEmpty");
+
     }
 
+    //calls the Asynchronous class below - does db connection stuff on separate thread
     public void syncDB()
     {
+        Log.d("Calling new SyncDeptDB", ".execute");
         new SyncDeptDB().execute();
     }
 
@@ -269,6 +309,7 @@ public class DBHandler extends SQLiteOpenHelper {
             // getting JSON string from URL
             try {
                 JSONObject jsonResult = jParser.makeHttpRequest(URL_GET_DETAILS, "GET", params);
+
                 if (jsonResult != null) {
                     Log.d("JSON SyncDepartmentDB: ", jsonResult.toString());
 
@@ -278,10 +319,11 @@ public class DBHandler extends SQLiteOpenHelper {
                     {
                         pDialog.setMessage("Department data received, saving to local database...");
 
-                        clearTable();
+                        clearLocalTable();
 
                         JSONArray jsonArray = jsonResult.getJSONArray("departments");
 
+                        Log.d("Populating Local table", "...");
                         for (int i = 0; i < jsonArray.length(); i++)
                         {
                             JSONObject c = jsonArray.getJSONObject(i);
@@ -313,6 +355,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
             if (json != null)
                 Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
+
+            populateDeptsList();
+            initSpinner(spnDepts);
         }
     }
 }

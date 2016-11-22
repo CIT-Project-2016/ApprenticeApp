@@ -31,12 +31,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnTestDb = (Button) findViewById(R.id.btnTestDb);
-        btnTestDb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TestDatabaseConnection.class));
-            }
-        });
     }
 }
