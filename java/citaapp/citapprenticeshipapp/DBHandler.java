@@ -40,11 +40,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private List<String> lstName = new ArrayList<String>();
 
+    private SQLiteDatabase db;
+
     public DBHandler(Context inContext) {
         super(inContext, DATABASE_NAME, null, DATABASE_VERSION);
         context = inContext;
 
         //clearLocalTable();
+        db = this.getWritableDatabase();
         syncDBIfEmpty();
         Log.d("DBHandler", "Constructor.");
     }
@@ -59,7 +62,7 @@ public class DBHandler extends SQLiteOpenHelper {
             Log.d("creating table", createTable);
             db.execSQL(createTable);
 
-            db.close();
+            //db.close();
             syncDBIfEmpty();
         }
         catch(Exception e)
@@ -76,17 +79,17 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void clearLocalTable()
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         Log.d("clear table", "clearing local table");
         db.delete(TABLE_NAME, null, null);
 
-        db.close();
+        //db.close();
     }
 
     public void addDept(CITDepartment dept)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         //values.put(KEY_ID, dept.getId());
@@ -96,7 +99,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_NAME, null, values);
 
-        db.close();
+        //db.close();
     }
 
     public void initSpinner(Spinner inSpinner)
@@ -144,7 +147,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean hasTableData()
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
+
         String count = "SELECT count(*) FROM " + TABLE_NAME;
         Cursor cursor = db.rawQuery(count, null);
 
@@ -154,14 +158,14 @@ public class DBHandler extends SQLiteOpenHelper {
         {
             //table has data
             Log.d("hasTableData result", "Table has data.");
-            db.close();
+            //db.close();
             return true;
         }
         else
         {
             //table is empty
             Log.d("hasTableData result", "Table is empty.");
-            db.close();
+            //db.close();
             return false;
         }
     }
@@ -183,7 +187,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -199,7 +203,7 @@ public class DBHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        db.close();
+        //db.close();
 
         allDepts = tempDeptsList;
     }
