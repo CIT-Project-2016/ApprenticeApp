@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.ApprenticeshipBegin">
 
     <TextView
-        android:text="@string/beginning_your_apprenticeship"
+        android:text="@string/page1_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
