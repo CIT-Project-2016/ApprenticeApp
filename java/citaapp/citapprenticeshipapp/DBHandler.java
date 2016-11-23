@@ -47,8 +47,8 @@ public class DBHandler extends SQLiteOpenHelper {
         context = inContext;
 
         //clearLocalTable();
-        db = this.getWritableDatabase();
-        syncDBIfEmpty();
+        db = this.getWritableDatabase(); //local database
+        syncDBIfEmpty(); // gets data from server db and puts in local db if local db is empty
         Log.d("DBHandler", "Constructor.");
     }
 

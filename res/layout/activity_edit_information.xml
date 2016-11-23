@@ -211,6 +211,18 @@
                 android:textSize="15sp"
                 android:layout_marginTop="20dp" />
 
+            <Button
+                android:text="Clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnClearLocalDb" />
+
+            <Button
+                android:text="Connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnForceConnect" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
