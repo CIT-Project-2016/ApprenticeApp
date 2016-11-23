@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.ApprenticeshipBegin">
 
     <TextView
-        android:text="Beginning your Apprenticeship"
+        android:text="@string/beginning_your_apprenticeship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,7 +20,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:text="Information regarding apprenticeships as well as useful links will be provided here."
+        android:text="@string/page1_paragraph1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -30,7 +30,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Home"
+        android:text="@string/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnHome"
@@ -38,7 +38,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Back"
+        android:text="@string/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnBack"
@@ -47,7 +47,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Next"
+        android:text="@string/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext"

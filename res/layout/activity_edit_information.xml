@@ -11,7 +11,7 @@
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -41,33 +41,22 @@
                     android:id="@+id/textView"
                     android:fontFamily="sans-serif"
                     android:textSize="22sp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
                     android:textAlignment="center" />
 
                 <Button
-                    android:text="Cancel"
+                    android:text="@string/button_cancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:id="@+id/btnCancel"
-                    android:layout_marginLeft="15dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_toLeftOf="@+id/btnSave"
-                    android:layout_toStartOf="@+id/btnSave" />
+                    android:layout_marginLeft="15dp" />
 
                 <Button
-                    android:text="Save"
+                    android:text="@string/button_save"
                     android:layout_width="71dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnSave"
                     android:gravity="center"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="false"
-                    android:layout_alignParentTop="true"
                     android:layout_weight="0.33" />
             </LinearLayout>
             <LinearLayout
@@ -83,10 +72,7 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/textView13"
-                    android:textSize="15sp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:textSize="15sp" />
 
 
                 <EditText
@@ -113,10 +99,7 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/textView14"
-                    android:textSize="15sp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:textSize="15sp" />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -126,9 +109,6 @@
                     android:inputType="none"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
                     android:maxLines="1" />
 
             </LinearLayout>
@@ -138,9 +118,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView12"
                 android:textSize="15sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <LinearLayout
@@ -232,9 +209,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView18"
                 android:textSize="15sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <LinearLayout
@@ -306,7 +280,7 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
@@ -323,9 +297,6 @@
                 android:id="@+id/textView22"
                 android:textSize="15sp"
                 android:gravity="center_horizontal"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <!--datepicker-->
@@ -353,10 +324,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView23"
                     android:textSize="15sp"
-                    android:paddingTop="5dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:paddingTop="5dp" />
 
                 <!--radio button-->
                 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
@@ -399,10 +367,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/textView24"
                     android:textSize="15sp"
-                    android:paddingTop="5dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
+                    android:paddingTop="5dp" />
 
                 <!--radio button-->
                 <RadioGroup
@@ -435,9 +400,6 @@
                 android:id="@+id/textView25"
                 android:textSize="15sp"
                 android:gravity="center_horizontal"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <!--datepicker-->

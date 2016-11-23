@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.ContractSignContract">
 
     <Button
-        android:text="Home"
+        android:text="@string/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnHome"
@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Back"
+        android:text="@string/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnBack"
@@ -28,7 +28,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Initiate Contract"
+        android:text="@string/page3_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -37,7 +37,7 @@
         android:textSize="24sp" />
 
     <TextView
-        android:text="Information regarding the training contract provided by the ANP within 28 days of employment is displayed here."
+        android:text="@string/page3_paragraph1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -47,7 +47,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Next"
+        android:text="@string/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext"
