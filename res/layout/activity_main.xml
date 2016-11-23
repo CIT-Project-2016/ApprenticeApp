@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.MainActivity">
 
     <Button
-        android:text="Update Information"
+        android:text="@string/button_update_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnInfo"
@@ -21,7 +21,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:text="Apprenticeship Timeline"
+        android:text="@string/button_timeline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnTimeline"

@@ -29,6 +29,8 @@ public class EditInformation extends AppCompatActivity {
 
     Button btnSave, btnCancel;
 
+    Button btnClearLocalDb, btnForceConnect;
+
     Spinner spnDeptName;
 
     TextView lblDeptPhone, lblDeptEmail;
@@ -153,6 +155,23 @@ public class EditInformation extends AppCompatActivity {
             }
         });
 
+        btnClearLocalDb = (Button) findViewById(R.id.btnClearLocalDb);
+        btnClearLocalDb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                dbHandler.clearLocalTable();
+            }
+        });
+
+        btnForceConnect = (Button) findViewById(R.id.btnForceConnect);
+        btnForceConnect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                dbHandler.syncDB();
+            }
+        });
     }
 
     @Override

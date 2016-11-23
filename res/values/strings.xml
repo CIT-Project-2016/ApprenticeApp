@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">CIT Apprenticeship App</string>
+    <string name="button_back">Back</string>
+    <string name="beginning_your_apprenticeship">Beginning your Apprenticeship</string>
+    <string name="page1_paragraph1">Information regarding apprenticeships as well as useful links will be provided here.</string>
+    <string name="button_home">Home</string>
+    <string name="button_next">Next</string>
+    <string name="page2_title1">Attaining Employment</string>
+    <string name="page2_paragraph1">Information regarding what happens after employement and ANPs as well as why the employer needs to choose one will be displayed here.</string>
+    <string name="page3_title1">Initiate Contract</string>
+    <string name="page3_paragraph1">Information regarding the training contract provided by the ANP within 28 days of employment is displayed here.</string>
+    <string name="page4_title1">Contract Approval</string>
+    <string name="page4_paragraph1">Information regarding Skills Canberra approving contract and CIT notifying student regarding information for enrolment is displayed here.</string>
+    <string name="page5_title1">Obtaining a USI</string>
+    <string name="page5_paragraph1">Information regarding apprenticeships as well as useful links will be provided here.</string>
+    <string name="page6_title1">Training Plan, RPL and LLN</string>
+    <string name="page6_paragraph1">Information regarding the Training Plan, RPL and LLN and links will be displayed here.</string>
+    <string name="page7_title1">Enrolment Complete</string>
+    <string name="page7_paragraph1">Congratulations for successfully enrolling as a CIT student! There are numerous resources available such as (useful links to Elucian Go and the CITSA app will be displayed). Methods for payment of fees will also be displayed on this page.</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_timeline">Apprenticeship Timeline</string>
+    <string name="button_update_info">Update Information</string>
+    <string name="button_begin_apprenticeship">Begin Apprenticeship</string>
+    <string name="button_initiate_contract">Initiate Contract</string>
+    <string name="button_student_enrolment">Student Enrolment</string>
 </resources>
