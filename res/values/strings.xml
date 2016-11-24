@@ -25,4 +25,5 @@
     <string name="button_begin_apprenticeship">Begin Apprenticeship</string>
     <string name="button_initiate_contract">Initiate Contract</string>
     <string name="button_student_enrolment">Student Enrolment</string>
+    <string name="text_link"><a href="http://www.google.com">Google</a></string>
 </resources>
