@@ -8,7 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_edit_information"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:paddingBottom="@dimen/activity_vertical_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -30,22 +30,33 @@
             android:id="@+id/textView"
             android:fontFamily="sans-serif"
             android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:textAlignment="center" />
 
 
         <Button
-            android:text="@string/button_back"
+            android:text="Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnBack"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/btnEdit"
+            android:layout_toStartOf="@+id/btnEdit" />
 
         <Button
-            android:text="@string/button_edit"
+            android:text="Edit"
             android:layout_width="71dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnEdit"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentTop="true" />
 
         </LinearLayout>
 
@@ -75,7 +86,10 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/textView13"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
 
 
                 <EditText
@@ -103,7 +117,10 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/textView14"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
 
                 <EditText
                     android:layout_width="match_parent"
@@ -114,7 +131,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:enabled="false"
-                    android:focusable="false" />
+                    android:focusable="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
             </LinearLayout>
 
@@ -124,6 +144,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView12"
                 android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <LinearLayout
@@ -219,6 +242,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView18"
                 android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
 
             <LinearLayout
@@ -315,6 +341,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView22"
                 android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp"
                 />
 
@@ -340,7 +369,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView23"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
 
 
                 <TextView
@@ -365,7 +397,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView24"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
 
 
                 <TextView
@@ -384,6 +419,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView25"
                 android:textSize="15sp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp" />
             <EditText
                 android:layout_width="match_parent"
@@ -393,6 +431,24 @@
                 android:layout_marginTop="10dp"
                 android:enabled="false"
                 android:focusable="false" />
+            <EditText
+                android:text="NotePad"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scrollbars="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/notelist"
+                android:focusable="false"
+                android:id="@+id/txtEditNote"
+                android:maxLines="10"
+                android:maxLength="300"
+                android:textSize="15sp"
+                android:gravity="top"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </LinearLayout>
 
 
