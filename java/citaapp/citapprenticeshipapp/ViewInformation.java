@@ -24,49 +24,11 @@ public class ViewInformation extends AppCompatActivity
 
     TextView RPLlbl, TPClbl;
 
-    Button editBtn, BackBtn, btnSaveNote, btnCancelNote;
+    Button btnEdit, btnBack, btnSaveNote, btnCancelNote;
 
     LayoutInflater layoutInflater;
     PopupWindow popupNotepad;
 
-    void loadPrefs()
-    {
-        preferenceSettings = getSharedPreferences("myInfo", Context.MODE_PRIVATE);
-        preferenceEditor = preferenceSettings.edit();
-
-        try
-        {
-            txtUsi.setText(preferenceSettings.getString("USI", "Not Found"));
-            txtCitNum.setText(preferenceSettings.getString("CIT Number", "Not Found"));
-            txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
-            txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
-            txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
-            txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
-            txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
-            txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
-            txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
-            txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
-
-            RPLlbl.setText(preferenceSettings.getString("RPL", "No"));
-            TPClbl.setText(preferenceSettings.getString("Training Plan", "No"));
-
-            txtEditNote.setText(preferenceSettings.getString("Notepad", "Notepad"));
-
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-    }
-
-    private void saveToPrefs(String key, String value)
-    {
-        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
-        preferenceEditor = preferenceSettings.edit();
-
-        preferenceEditor.putString(key, value);
-        preferenceEditor.apply();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -90,20 +52,18 @@ public class ViewInformation extends AppCompatActivity
 
         txtEditNote = (EditText) findViewById(R.id.txtEditNote);
 
+        btnEdit = (Button) findViewById(R.id.btnEdit);
 
-
-        editBtn = (Button) findViewById(R.id.btnEdit);
-
-        editBtn.setOnClickListener(new View.OnClickListener() {
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ViewInformation.this, EditInformation.class));
             }
         });
 
-        BackBtn = (Button) findViewById(R.id.btnBack);
+        btnBack = (Button) findViewById(R.id.btnBack);
 
-        BackBtn.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -112,7 +72,7 @@ public class ViewInformation extends AppCompatActivity
 
         txtEditNote.setOnClickListener( new View.OnClickListener(){
             @Override
-             public void onClick(View v) {
+            public void onClick(View v) {
                 //creates a popup Window
                 layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 ViewGroup container = (ViewGroup)layoutInflater.inflate(R.layout.popup_notepad,null);
@@ -154,6 +114,47 @@ public class ViewInformation extends AppCompatActivity
             }
         });
     }
+
+    void loadPrefs()
+    {
+        preferenceSettings = getSharedPreferences("myInfo", Context.MODE_PRIVATE);
+        preferenceEditor = preferenceSettings.edit();
+
+        try
+        {
+            txtUsi.setText(preferenceSettings.getString("USI", "Not Found"));
+            txtCitNum.setText(preferenceSettings.getString("CIT Number", "Not Found"));
+            txtAnpName.setText(preferenceSettings.getString("ANP Name", "Not Found"));
+            txtAnpPhone.setText(preferenceSettings.getString("ANP Phone", "Not Found"));
+            txtAnpEmail.setText(preferenceSettings.getString("ANP Email", "Not Found"));
+            txtDeptName.setText(preferenceSettings.getString("Department Name", "Not Found"));
+            txtDeptPhone.setText(preferenceSettings.getString("Department Phone", "Not Found"));
+            txtDeptEmail.setText(preferenceSettings.getString("Department Email", "Not Found"));
+            txtLlnDate.setText(preferenceSettings.getString("LLN Date", "Not Found"));
+            txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
+
+            RPLlbl.setText(preferenceSettings.getString("RPL", "No"));
+            TPClbl.setText(preferenceSettings.getString("Training Plan", "No"));
+
+            txtEditNote.setText(preferenceSettings.getString("Notepad", "Notepad"));
+
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void saveToPrefs(String key, String value)
+    {
+        preferenceSettings = getSharedPreferences("myInfo",Context.MODE_PRIVATE);
+        preferenceEditor = preferenceSettings.edit();
+
+        preferenceEditor.putString(key, value);
+        preferenceEditor.apply();
+    }
+
+
 
     @Override
     protected void onStart()
