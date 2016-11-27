@@ -8,7 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#000000"
     tools:context="citaapp.citapprenticeshipapp.MainActivity"
     >
 
@@ -16,45 +15,33 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#FFA000"
+        android:background="#e12227"
 
         />
 
-    <LinearLayout
+
+    <Button
+        android:text="@string/button_update_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/btnInfo"
+        android:textSize="30dp"
+
+        android:layout_below="@+id/btnTimeline"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="66dp" />
+
+    <Button
+        android:text="@string/button_timeline"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/btnTimeline"
+        android:textSize="30dp"
+        android:layout_marginTop="53dp"
         android:layout_below="@+id/toolbar"
-        android:orientation="vertical"
-        android:layout_margin="20dp"
-        >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-        <Button
-            android:text="@string/button_timeline"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/btnTimeline"
-            android:textSize="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/btnInfo"
-            android:layout_weight = ".5"
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="5dp"
-            android:background="#962E69"/>
 
-        <Button
-            android:text="@string/button_update_info"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/btnInfo"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textSize="30dp"
-            android:textColor="#FFFFFF"
-            android:layout_weight = ".5"
-            android:layout_marginTop="20dp"
-            android:background="#5C028D"/>
-
-    </LinearLayout>
 </RelativeLayout>
