@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CIT Apprenticeship App</string>
+    <string name="app_name">"CIT Apprenticeship"</string>
     <string name="button_back">Back</string>
     <string name="page1_title1">Beginning your Apprenticeship</string>
     <string name="page1_paragraph1">Information regarding apprenticeships as well as useful links will be provided here.</string>
@@ -25,5 +25,4 @@
     <string name="button_begin_apprenticeship">Begin Apprenticeship</string>
     <string name="button_initiate_contract">Initiate Contract</string>
     <string name="button_student_enrolment">Student Enrolment</string>
-    <string name="text_link"><a href="http://www.google.com">Google</a></string>
 </resources>
