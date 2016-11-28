@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">CIT Apprenticeship App</string>
+    <string name="button_back">Back</string>
+    <string name="page1_title1">Beginning your Apprenticeship</string>
+    <string name="page1_paragraph1">
+        Australian Apprenticeships:\n
+        www.australianapprenticeships.gov.au\n\n
+        Skills Road:\n
+        http://www.skillsroad.com.au\n\n
+        CIT Apprenticeships and Traineeships:\n
+        http://cit.edu.au/apprentices_trainees
+    </string>
+    <string name="button_home">Home</string>
+    <string name="button_next">Next</string>
+    <string name="page2_title1">Attaining Employment</string>
+    <string name="page2_paragraph1">Information regarding what happens after employement and ANPs as well as why the employer needs to choose one will be displayed here.</string>
+    <string name="page3_title1">Initiate Contract</string>
+    <string name="page3_paragraph1">
+        Apprenticeship Network Providers in ACT and NSW are:\n\n
+            Apprenticeships Support Australia\n
+            Phone: 	1300 363 831\n
+            Email: 		info@apprenticeshipsupport.com.au\n
+            Website:	www.apprenticeshipsupport.com.au\n\n
+
+            MEGT\n
+	        Phone:		ACT - (02) 6274 0000\n
+			NSW – (02) 4220 1777\n
+            Email:		aasninfo@megt.com.au\n
+            Website:	www.megt.com.au\n\n
+
+            Sarina Russo Job Access (Australia) Pty Ltd\n
+            Phone:		1300 178 776\n
+            Email:		apprenticeships@sarinarusso.com.au\n
+            Website:	www.sarinarusso.com\n\n
+
+            VERTO LTD (NSW Only)\n
+            Phone:		0408 442 361\n
+            Website:	www.verto.org.au
+    </string>
+    <string name="page4_title1">Contract Approval</string>
+    <string name="page4_paragraph1">
+        PROBATIONARY PERIOD\n\n
+
+        A probationary period for training contracts applies for Australian Apprenticeships. During the probationary period an Australian Apprenticeship training contract may be withdrawn by either the Australian Apprentice or the employer, without requiring the consent of the other party.\n\n
+
+        In the ACT the probationary period is:\n
+        60 days for a training contract with a nominal duration of 24 months or less\n
+        90 days for a training contract with a nominal duration of over 24 months\n\n
+
+        In NSW the probationary period can be up to three (3) months depending on your qualification.\n\n
+
+        To check your probationary period, you can refer to your training contract, approval letter (NSW only) or contact your relevant State Training Authority:\n\n
+
+        ACT (Skills Canberra):		    (02) 6205 8555\n
+                                        skills@act.gov.au\n\n
+
+        NSW (Training Services NSW):	(02) 4224 9300\n
+                                        STS.Wollongong@industry.nsw.gov.au\n\n
+
+        Student may be eligible for a $300 payment from skills canberra.\n
+        Student must complete a survey sent by skills Canberra.
+    </string>
+    <string name="page5_title1">Obtaining a USI</string>
+    <string name="page5_paragraph1">
+        UNIQUE STUDENT IDENTIFIER (USI)\n\n
+
+        It is a requirement that all Australian Apprentices enrolling at CIT have a unique student identifier (USI).\n
+        To apply for a USI, go to www.usi.gov.au, and follow the instructions provided.\n\n
+
+        If you already have a USI you can verify it in our student administration system so your enrolment isn\'t delayed. To verify your USI, complete the following steps:\n
+        1. Login to CIT Self Service – www.cit.edu.au/selfservice\n
+        2. Click on the link for USI\n
+        3. Verify your USI, following the instructions provided\n\n
+
+        It\'s important that your first name, surname and date of birth in our student system match the ID used to create your USI (e.g. if you are Christopher in the USI database and Chris at CIT your USI will not verify).\n
+        If you need assistance creating your USI, drop in to a CIT Library, CITSA office or contact CIT Student Services on (02) 6207 3188.
+    </string>
+    <string name="page6_title1">Training Plan, RPL and LLN</string>
+    <string name="page6_paragraph1">
+        LANGUAGE LITERACY AND NUMERACY SUPPORT (LLN)\n
+        Prior to commencing your training at CIT, you will be required to undertake a Language, Literacy and Numeracy (LLN) assessment to help identify areas where you may require additional assistance to achieve your qualification.  Add your credentials Given name, Surname and Qualification eg Certificate III in Hairdressing.\n\n
+
+        RPL- SKILLS RECOGNITION (recognition of prior learning)\n
+        Through CIT’s Skills Recognition process, you can have your skills and knowledge (achieved through previous work, life experience or formal study) recognised to contribute to the successful completion of your qualification. Skills recognition is discussed prior to enrolment and production of the training plan. This will ensure you are enrolled into the correct classes and your training plan reflects the skills recognition subjects.\n\n
+
+        *Also may add to contact the department area or the CIT rep that made the initial contact regarding RPL.*\n
+        If you think your experience can count towards your qualification or for further information contact CIT Student Services on (02) 6207 3188 or email infoline@cit.edu.au.\n
+        Please note: Additional fees may apply.\n\n
+
+        TRAINING PLAN\n
+        Prior to commencing your training, CIT will complete a training plan with you and your employer that outlines the competencies required for you to achieve your qualification. The training plan sets out details of how, when and by who the training and assessment will occur throughout the Australian Apprenticeship. The training plan identifies if there is any extra support needed such as learning, special needs, alternative methods of training and assessment and any other support services required. As part of the training plan the employer agrees that they understand the obligation to provide the Australian Apprentice with the opportunities to undertake structured training and assessment and has appropriate supervisory staff with the required skills and knowledge to build the Australian Apprentices required competencies in the workplace.\n
+        The training plan is reviewed every 12 months and is a living document that can change throughout the Australian Apprentices apprenticeship.
+    </string>
+    <string name="page7_title1">Enrolment Complete</string>
+    <string name="page7_paragraph1">
+        Congratulations for successfully enrolling as a CIT student! There are numerous resources available such as (useful links to Elucian Go and the CITSA app will be displayed). Methods for payment of fees will also be displayed on this page.\n\n
+        Link to Eluian Go\n
+        Link to CITSA\n
+        Methods for payment
+    </string>
+    <string name="button_edit">Edit</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_timeline">Apprenticeship Timeline</string>
+    <string name="button_update_info">Update Information</string>
+    <string name="button_begin_apprenticeship">Begin Apprenticeship</string>
+    <string name="button_initiate_contract">Initiate Contract</string>
+    <string name="button_student_enrolment">Student Enrolment</string>
+    <string name="text_link"><a href="http://www.google.com">Google</a></string>
+</resources>
