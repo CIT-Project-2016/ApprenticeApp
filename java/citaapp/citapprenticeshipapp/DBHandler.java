@@ -313,9 +313,6 @@ public class DBHandler extends SQLiteOpenHelper {
 
             // getting JSON string from URL
             try {
-
-                //TODO
-                //change from GET to POST?
                 JSONObject jsonResult = jParser.makeHttpRequest(URL_GET_DETAILS, "GET", params);
 
                 if (jsonResult != null) {

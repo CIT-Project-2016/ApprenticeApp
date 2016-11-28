@@ -27,7 +27,7 @@ public class EditInformation extends AppCompatActivity {
 
     DatePickerDialog datePickerDialog;
 
-    Button btnSave, btnCancel, btnClearDetails;
+    Button btnSave, btnCancel;
 
     Button btnClearLocalDb, btnForceConnect;
 
@@ -63,7 +63,7 @@ public class EditInformation extends AppCompatActivity {
         rbtRPLNo = (RadioButton) findViewById(R.id.rbtRPLNo);
         rbtTrainingYes = (RadioButton) findViewById(R.id.rbtTrainingYes);
         rbtTrainingNo = (RadioButton) findViewById(R.id.rbtTrainingNo);
-        btnClearDetails = (Button) findViewById(R.id.btnClearDetails);
+
 
         //
         dbHandler = new DBHandler(this);
@@ -133,16 +133,7 @@ public class EditInformation extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-        btnClearDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
 
-                SharedPreferences settings = getSharedPreferences("myInfo", Context.MODE_PRIVATE);
-                settings.edit().clear().commit();
-
-            }
-        });
         btnSave = (Button) findViewById(R.id.btnSave);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -293,16 +284,15 @@ public class EditInformation extends AppCompatActivity {
             txtClassDate.setText(preferenceSettings.getString("Class Start Date", "Not Found"));
 
 
-            if("No".equals(preferenceSettings.getString("RPL","No")))
-                rbtRPLNo.setChecked(true);
-            else
+            if("Yes".equals(preferenceSettings.getString("RPL","Yes")))
                 rbtRPLYes.setChecked(true);
-
-
-            if("No".equals(preferenceSettings.getString("Training Plan","No")))
-                rbtTrainingNo.setChecked(true);
             else
+                rbtRPLNo.setChecked(true);
+
+            if("Yes".equals(preferenceSettings.getString("Training Plan","Yes")))
                 rbtTrainingYes.setChecked(true);
+            else
+                rbtTrainingNo.setChecked(true);
 
         }
         catch(Exception e)
