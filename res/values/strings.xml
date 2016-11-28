@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">"CIT Apprenticeship"</string>
+    <string name="app_name">""</string>
     <string name="button_back">Back</string>
     <string name="page1_title1">Beginning your Apprenticeship</string>
     <string name="page1_paragraph1">Information regarding apprenticeships as well as useful links will be provided here.</string>

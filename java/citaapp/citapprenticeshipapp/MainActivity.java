@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
+        toolbar.setLogo(R.drawable.cit_logo);
+        
         btnTimeline = (Button) findViewById(R.id.btnTimeline);
 
         btnTimeline.setOnClickListener(new View.OnClickListener() {
