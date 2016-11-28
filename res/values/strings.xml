@@ -13,7 +13,7 @@
     <string name="button_home">Home</string>
     <string name="button_next">Next</string>
     <string name="page2_title1">Attaining Employment</string>
-    <string name="page2_paragraph1">Information regarding what happens after employement and ANPs as well as why the employer needs to choose one will be displayed here.</string>
+    <string name="page2_paragraph1">Information regarding what happens after employment and ANPs as well as why the employer needs to choose one will be displayed here.</string>
     <string name="page3_title1">Initiate Contract</string>
     <string name="page3_paragraph1">
         Apprenticeship Network Providers in ACT and NSW are:\n\n
@@ -58,7 +58,7 @@
                                         STS.Wollongong@industry.nsw.gov.au\n\n
 
         Student may be eligible for a $300 payment from skills canberra.\n
-        Student must complete a survey sent by skills Canberra.
+        Student must complete a survey sent by skills Canberra.\n
     </string>
     <string name="page5_title1">Obtaining a USI</string>
     <string name="page5_paragraph1">
@@ -73,7 +73,7 @@
         3. Verify your USI, following the instructions provided\n\n
 
         It\'s important that your first name, surname and date of birth in our student system match the ID used to create your USI (e.g. if you are Christopher in the USI database and Chris at CIT your USI will not verify).\n
-        If you need assistance creating your USI, drop in to a CIT Library, CITSA office or contact CIT Student Services on (02) 6207 3188.
+        If you need assistance creating your USI, drop in to a CIT Library, CITSA office or contact CIT Student Services on (02) 6207 3188.\n
     </string>
     <string name="page6_title1">Training Plan, RPL and LLN</string>
     <string name="page6_paragraph1">
@@ -89,12 +89,12 @@
 
         TRAINING PLAN\n
         Prior to commencing your training, CIT will complete a training plan with you and your employer that outlines the competencies required for you to achieve your qualification. The training plan sets out details of how, when and by who the training and assessment will occur throughout the Australian Apprenticeship. The training plan identifies if there is any extra support needed such as learning, special needs, alternative methods of training and assessment and any other support services required. As part of the training plan the employer agrees that they understand the obligation to provide the Australian Apprentice with the opportunities to undertake structured training and assessment and has appropriate supervisory staff with the required skills and knowledge to build the Australian Apprentices required competencies in the workplace.\n
-        The training plan is reviewed every 12 months and is a living document that can change throughout the Australian Apprentices apprenticeship.
+        The training plan is reviewed every 12 months and is a living document that can change throughout the Australian Apprentices apprenticeship.\n
     </string>
     <string name="page7_title1">Enrolment Complete</string>
     <string name="page7_paragraph1">
         Congratulations for successfully enrolling as a CIT student! There are numerous resources available such as (useful links to Elucian Go and the CITSA app will be displayed). Methods for payment of fees will also be displayed on this page.\n\n
-        Link to Eluian Go\n
+        Link to Elucian Go\n
         Link to CITSA\n
         Methods for payment
     </string>
