@@ -3,23 +3,21 @@ package citaapp.citapprenticeshipapp;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnTimeline, btnInfo, btnTestDb;
-
+    TextView lblLinkTest;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("");
-        btnTimeline = (Button) findViewById(R.id.btnTimeline);
 
+        btnTimeline = (Button) findViewById(R.id.btnTimeline);
         btnTimeline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,5 +33,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        lblLinkTest = (TextView) findViewById(R.id.lblLinkTest);
+        lblLinkTest.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
