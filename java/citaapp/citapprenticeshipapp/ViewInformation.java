@@ -43,8 +43,6 @@ public class ViewInformation extends AppCompatActivity
             RPLlbl.setText(preferenceSettings.getString("RPL", "No"));
             TPClbl.setText(preferenceSettings.getString("Training Plan", "No"));
 
-
-
         }
         catch(Exception e)
         {
@@ -91,7 +89,6 @@ public class ViewInformation extends AppCompatActivity
                 finish();
             }
         });
-
     }
 
     @Override
