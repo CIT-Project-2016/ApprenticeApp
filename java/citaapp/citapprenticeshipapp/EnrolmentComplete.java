@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class EnrolmentComplete extends AppCompatActivity {
 
     Button btnBack, btnHome;
-    Button btnLinkToElucianGo;
+    ImageButton btnLinkToElucian, btnLinkToCitsa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,26 +38,37 @@ public class EnrolmentComplete extends AppCompatActivity {
             }
         });
 
-        btnLinkToElucianGo = (Button) findViewById(R.id.btnLinkToElucianGo);
-        btnLinkToElucianGo.setOnClickListener(new View.OnClickListener(){
+        btnLinkToElucian = (ImageButton) findViewById(R.id.btnLinkToElucian);
+        btnLinkToElucian.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                openElucianGo();
+                final String APP_PACKAGE_NAME = "com.ellucian.elluciango";
+                openInPlayStore(APP_PACKAGE_NAME);
+            }
+        });
+
+        btnLinkToCitsa = (ImageButton) findViewById(R.id.btnLinkToCitsa);
+        btnLinkToCitsa.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                final String APP_PACKAGE_NAME = "pokit.campus.citsa";
+                openInPlayStore(APP_PACKAGE_NAME);
             }
         });
     }
 
-    private void openElucianGo()
+    private void openInPlayStore(final String APP_PACKAGE_NAME)
     {
-        final String APP_PACKAGE_NAME = "com.ellucian.elluciango"; // getPackageName() from Context or Activity object
         try {
             //Open in Google Play store
-            Log.d("trying open: ", "in Play Store");
+            Log.d("trying open", "in Play Store");
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PACKAGE_NAME)));
         } catch (android.content.ActivityNotFoundException anfe) {
             //If cannot open Google Play store, open in browser.
-            Log.d("trying open: ", "in browser");
+            Log.d("no play store", "opening in browser");
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + APP_PACKAGE_NAME)));
         }
     }
 }
+
+
