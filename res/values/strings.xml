@@ -94,10 +94,10 @@
     <string name="page7_title1">Enrolment Complete</string>
     <string name="page7_paragraph1">
         Congratulations for successfully enrolling as a CIT student! There are numerous resources available such as (useful links to Elucian Go and the CITSA app will be displayed). Methods for payment of fees will also be displayed on this page.\n\n
-        Link to Elucian Go\n
-        Link to CITSA\n
-        Methods for payment
+
     </string>
+    <string name="page7_Label1">Ellucian Go</string>
+    <string name="page7_Label2">CITSA</string>
     <string name="button_edit">Edit</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>

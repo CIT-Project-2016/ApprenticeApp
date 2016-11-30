@@ -20,17 +20,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".TimelineMain" />
-        <activity android:name=".ApprenticeshipBegin" />
-        <activity android:name=".ApprenticeshipEmployment" />
-        <activity android:name=".ContractSignContract" />
-        <activity android:name=".ContractApproval" />
-        <activity android:name=".EnrolmentUSI" />
-        <activity android:name=".EnrolmentTrainingPlan" />
-        <activity android:name=".EnrolmentComplete" />
-        <activity android:name=".EditInformation" />
-        <activity android:name=".ViewInformation" />
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TimelineMain"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ApprenticeshipBegin"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ApprenticeshipEmployment"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ContractSignContract"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ContractApproval"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EnrolmentUSI"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EnrolmentTrainingPlan"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EnrolmentComplete"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".EditInformation"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ViewInformation"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity android:name=".TestDatabaseConnection"/>
 
     </application>
