@@ -313,7 +313,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
                 //TODO
                 //change from GET to POST?
-                JSONObject jsonResult = _jsonParser.makeHttpRequest(URL_GET_DETAILS, "GET", params);
+                JSONObject jsonResult = _jsonParser.makeHttpRequest(URL_GET_DETAILS, "POST", params);
 
                 if (jsonResult != null) {
                     Log.d("JSON SyncDepartmentDB: ", jsonResult.toString());
