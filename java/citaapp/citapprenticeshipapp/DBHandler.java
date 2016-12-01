@@ -40,14 +40,14 @@ public class DBHandler extends SQLiteOpenHelper {
 
     private List<String> lstName = new ArrayList<String>();
 
-    //private SQLiteDatabase db;
+    private SQLiteDatabase db;
 
     public DBHandler(Context inContext) {
         super(inContext, DATABASE_NAME, null, DATABASE_VERSION);
         context = inContext;
 
         //clearLocalTable();
-        //db = this.getWritableDatabase(); //local database
+        db = this.getWritableDatabase(); //local database
         syncDBIfEmpty(); // gets data from server db and puts in local db if local db is empty
         Log.d("DBHandler", "Constructor.");
     }
@@ -79,27 +79,27 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public void clearLocalTable()
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         Log.d("clear table", "clearing local table");
         db.delete(TABLE_NAME, null, null);
 
-        db.close();
+        //db.close();
     }
 
-    public void addDept(CITDepartment inDept)
+    public void addDept(CITDepartment dept)
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         //values.put(KEY_ID, dept.getId());
-        values.put(KEY_NAME, inDept.getName());
-        values.put(KEY_PHONE, inDept.getPhone());
-        values.put(KEY_EMAIL, inDept.getEmail());
+        values.put(KEY_NAME, dept.getName());
+        values.put(KEY_PHONE, dept.getPhone());
+        values.put(KEY_EMAIL, dept.getEmail());
 
         db.insert(TABLE_NAME, null, values);
 
-        db.close();
+        //db.close();
     }
 
     public void initSpinner(Spinner inSpinner)
@@ -147,7 +147,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public boolean hasTableData()
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         String count = "SELECT count(*) FROM " + TABLE_NAME;
         Cursor cursor = db.rawQuery(count, null);
@@ -158,14 +158,14 @@ public class DBHandler extends SQLiteOpenHelper {
         {
             //table has data
             Log.d("hasTableData result", "Table has data.");
-            db.close();
+            //db.close();
             return true;
         }
         else
         {
             //table is empty
             Log.d("hasTableData result", "Table is empty.");
-            db.close();
+            //db.close();
             return false;
         }
     }
@@ -187,7 +187,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + TABLE_NAME;
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -203,7 +203,7 @@ public class DBHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        db.close();
+        //db.close();
 
         allDepts = tempDeptsList;
     }
@@ -264,7 +264,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //"http://192.168.1.8:80/android_connect/get_details.php" is for my home PC - Donald
         //"http://10.0.2.2:80/android_connect/get_details.php" should work with emulator in the lab
-        private static final String URL_GET_DETAILS = "http://10.0.2.2:80/android_connect/get_details.php";
+        private static final String URL_GET_DETAILS = "http://131.107.108.7:80/android_connect/get_details.php";
 
         private static final String TAG_SUCCESS = "success"; //this is used to check whether data was received correctly
 
@@ -272,15 +272,18 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //this object will make the HTTP connection to the PHP file and parse the results in JSON format
         //  Java Script Object Notation
-        JSONParser _jsonParser;
+        JSONParser jParser;
 
         //Context myActivity;    //this is a reference to the Activity that called SyncDepartmentDB
         ProgressDialog pDialog; //this is a progress dialog.
+        DBHandler localDB; //this object will connect to the local DB to save the results
 
         public SyncDeptDB() {
             super();
             // do stuff
-            _jsonParser = new JSONParser();
+            //myActivity = inActivity;
+            jParser = new JSONParser();
+            //localDB = new DBHandler(context);
         }
 
         /**
@@ -313,7 +316,7 @@ public class DBHandler extends SQLiteOpenHelper {
 
                 //TODO
                 //change from GET to POST?
-                JSONObject jsonResult = _jsonParser.makeHttpRequest(URL_GET_DETAILS, "POST", params);
+                JSONObject jsonResult = jParser.makeHttpRequest(URL_GET_DETAILS, "GET", params);
 
                 if (jsonResult != null) {
                     Log.d("JSON SyncDepartmentDB: ", jsonResult.toString());

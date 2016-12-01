@@ -19,6 +19,7 @@
         android:background="@drawable/notelist"
         android:layout_weight=".5"
         android:maxLength="400"
+        android:textColor="#000000"
         android:id="@+id/editTextNotepad"
         />
 
