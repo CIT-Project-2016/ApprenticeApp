@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.EnrolmentUSI">
 
     <TextView
-        android:text="Obtaining a USI"
+        android:text="@string/page5_title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -20,7 +20,7 @@
         android:textSize="24sp" />
 
     <Button
-        android:text="Home"
+        android:text="@string/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnHome"
@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:text="Back"
+        android:text="@string/button_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnBack"
@@ -37,7 +37,7 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:text="Next"
+        android:text="@string/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnNext"
@@ -46,12 +46,13 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Information regarding apprenticeships as well as useful links will be provided here."
+        android:text="@string/page5_paragraph1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:id="@+id/textView7"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:autoLink="web" />
 </RelativeLayout>

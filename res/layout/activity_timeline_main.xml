@@ -11,7 +11,7 @@
     tools:context="citaapp.citapprenticeshipapp.TimelineMain">
 
     <Button
-        android:text="Student Enrolment"
+        android:text="@string/button_student_enrolment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
@@ -22,7 +22,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:text="Initiate Contract"
+        android:text="@string/button_initiate_contract"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnContract"
@@ -32,7 +32,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:text="Begin Apprenticeship"
+        android:text="@string/button_begin_apprenticeship"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnApprenticeship"
@@ -43,7 +43,7 @@
         android:textSize="20sp" />
 
     <Button
-        android:text="Home"
+        android:text="@string/button_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnHome"
