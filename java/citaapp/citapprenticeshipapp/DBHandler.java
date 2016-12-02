@@ -360,7 +360,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
             if (json != null)
             {
-                Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Department info updated...", Toast.LENGTH_LONG).show();
 
                 populateDeptsList();
                 initSpinner(spnDepts);
