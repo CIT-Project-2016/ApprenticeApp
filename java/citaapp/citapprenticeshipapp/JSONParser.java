@@ -23,7 +23,8 @@ import java.util.HashMap;
 class JSONParser
 {
     private final String CHARSET = "UTF-8";
-
+    private final int TIMEOUT_READ = 10000;
+    private final int TIMEOUT_CONN = 10000;
     private HttpURLConnection conn;
     private StringBuilder sbResult;
     private String stringResult;
@@ -69,8 +70,8 @@ class JSONParser
 
                 conn.setRequestProperty("Accept-Charset", CHARSET);
 
-                conn.setReadTimeout(10000);
-                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(TIMEOUT_READ);
+                conn.setConnectTimeout(TIMEOUT_CONN);
 
                 conn.connect();
 
@@ -103,7 +104,7 @@ class JSONParser
 
                 conn.setRequestProperty("Accept-Charset", CHARSET);
 
-                conn.setConnectTimeout(15000);
+                conn.setConnectTimeout(TIMEOUT_CONN);
 
                 conn.connect();
 
