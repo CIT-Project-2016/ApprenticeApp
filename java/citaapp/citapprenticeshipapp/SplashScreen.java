@@ -38,5 +38,4 @@ public class SplashScreen extends Activity {
         super.onPause();
         finish();
     }
-
 }
