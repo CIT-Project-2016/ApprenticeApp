@@ -178,7 +178,7 @@ public class EditInformation extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                dbHandler.syncDB();
+                dbHandler.syncDb();
             }
         });
     }

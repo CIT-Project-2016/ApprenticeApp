@@ -48,7 +48,9 @@ public class DBHandler extends SQLiteOpenHelper {
 
         //clearLocalTable();
         //db = this.getWritableDatabase(); //local database
-        syncDBIfEmpty(); // gets data from server db and puts in local db if local db is empty
+
+        syncDbIfEmpty(); // gets data from server db and puts in local db if local db is empty
+
         Log.d("DBHandler", "Constructor.");
     }
 
@@ -63,7 +65,7 @@ public class DBHandler extends SQLiteOpenHelper {
             db.execSQL(createTable);
 
             //db.close();
-            syncDBIfEmpty();
+            syncDbIfEmpty();
         }
         catch(Exception e)
         {
@@ -87,7 +89,7 @@ public class DBHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void addDept(CITDepartment inDept)
+    public void addRowToLocalDb(CITDepartment inDept)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -234,21 +236,21 @@ public class DBHandler extends SQLiteOpenHelper {
 //        return deptList;
 //    }
 
-    public void syncDBIfEmpty()
+    public void syncDbIfEmpty()
     {
         Log.d("SyncDBIfEmpty", "...");
         if (!hasTableData())
         {
-            Log.d("Calling SyncDB", "From syncDBIfEmpty");
-            syncDB();
+            Log.d("Calling SyncDB", "From syncDbIfEmpty");
+            syncDb();
         }
         else
-            Log.d("table has data", "From syncDBIfEmpty");
+            Log.d("table has data", "From syncDbIfEmpty");
 
     }
 
     //calls the Asynchronous class below - does db connection stuff on separate thread
-    public void syncDB()
+    public void syncDb()
     {
         Log.d("Calling new SyncDeptDB", ".execute");
         new SyncDeptDB().execute();
@@ -257,7 +259,7 @@ public class DBHandler extends SQLiteOpenHelper {
     /**
      * Background Async Task to get database info by making HTTP Request to PHP file on server
      * */
-    class SyncDeptDB extends AsyncTask<String, String, JSONObject> { //<parameters, progress, result>
+    class SyncDeptDB extends AsyncTask<String, String, Boolean> { //<parameters, progress, result>
 
         //this is the URL for the PHP file that will get our SQL data for CIT departments from the server we've set up..
 
@@ -300,19 +302,18 @@ public class DBHandler extends SQLiteOpenHelper {
          * getting All details from url
          * */
         @Override
-        protected JSONObject doInBackground(String... args) {
+        protected Boolean doInBackground(String... args) {
 
             // Building Parameters
             HashMap<String, String> params = new HashMap<String, String>();
+
+            //build parameters here if using them..
 
             //debug log
             Log.d("HTTP Request", "Starting");
 
             // getting JSON string from URL
             try {
-
-                //TODO
-                //change from GET to POST?
                 JSONObject jsonResult = _jsonParser.makeHttpRequest(URL_GET_DETAILS, "POST", params);
 
                 if (jsonResult != null) {
@@ -337,28 +338,28 @@ public class DBHandler extends SQLiteOpenHelper {
                             String phone = c.optString("dept_phone");
                             String email = c.optString("dept_email");
 
-                            addDept(new CITDepartment(name, phone, email));
+                            addRowToLocalDb(new CITDepartment(name, phone, email));
                         }
                     }
-                    return jsonResult;
+                    return true;
                 }
             }
             catch(Exception e){
                 e.printStackTrace();
             }
 
-            return null; //if we didn't get a result
+            return false; //if we didn't get a result
         }
 
         /**
          * After completing background task Dismiss the progress dialog
          * **/
         @Override
-        protected void onPostExecute(JSONObject json) {
+        protected void onPostExecute(Boolean success) {
 
             if (pDialog != null && pDialog.isShowing()) pDialog.dismiss();
 
-            if (json != null)
+            if (success)
             {
                 //Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
                 Toast.makeText(context, "Department info updated...", Toast.LENGTH_LONG).show();
